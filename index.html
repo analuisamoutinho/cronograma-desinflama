@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projeto Desinflama · Cronograma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --preto:#000000;
+    --navy:#101820;
+    --azul-profundo:#061F2C;
+    --azul-acinzentado:#7BA7BC;
+    --azul-claro:#D1DDE6;
+    --off-white:#F1F3F4;
+    --linha: rgba(123,167,188,0.25);
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--preto);
+    color:var(--off-white);
+    font-family:'Poppins', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,h4{
+    font-family:'Poppins', sans-serif;
+    font-weight:800;
+    letter-spacing:-0.01em;
+    color:var(--off-white);
+  }
+
+  a{color:var(--azul-acinzentado);}
+
+  .container{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 40px;
+  }
+
+  /* ============ HEADER / HERO ============ */
+  header.hero{
+    position:relative;
+    background:
+      radial-gradient(circle at 85% 15%, rgba(123,167,188,0.10), transparent 45%),
+      linear-gradient(180deg, var(--navy) 0%, var(--preto) 100%);
+    padding:90px 0 70px;
+    border-bottom:1px solid var(--linha);
+    overflow:hidden;
+  }
+
+  .hero .container{position:relative; z-index:2;}
+
+  .brandmark{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:70px;
+  }
+
+  .brandmark .logo{
+    font-weight:800;
+    font-size:20px;
+    letter-spacing:0.02em;
+  }
+  .brandmark .logo span{color:var(--azul-acinzentado); font-weight:300;}
+
+  .brandmark .tag{
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--azul-acinzentado);
+    border:1px solid var(--linha);
+    padding:8px 16px;
+    border-radius:999px;
+  }
+
+  .eyebrow{
+    font-size:13px;
+    letter-spacing:0.25em;
+    text-transform:uppercase;
+    color:var(--azul-acinzentado);
+    margin-bottom:20px;
+  }
+
+  h1.title{
+    font-size:56px;
+    line-height:1.05;
+    max-width:820px;
+    margin-bottom:24px;
+  }
+  h1.title .accent{color:var(--azul-acinzentado);}
+
+  .hero p.lede{
+    max-width:640px;
+    font-size:17px;
+    font-weight:300;
+    color:var(--azul-claro);
+  }
+
+  .hero-stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--linha);
+    margin-top:60px;
+    border:1px solid var(--linha);
+  }
+  .hero-stats div{
+    background:var(--preto);
+    padding:26px 28px;
+  }
+  .hero-stats .num{
+    font-size:30px;
+    font-weight:800;
+    color:var(--off-white);
+    display:block;
+  }
+  .hero-stats .lab{
+    font-size:12px;
+    letter-spacing:0.05em;
+    color:var(--azul-acinzentado);
+    text-transform:uppercase;
+    margin-top:4px;
+  }
+
+  /* ============ SECTION GENERIC ============ */
+  section{
+    padding:80px 0;
+    border-bottom:1px solid var(--linha);
+  }
+
+  section.dark{background:var(--navy);}
+
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:18px;
+    margin-bottom:40px;
+  }
+
+  .section-head .idx{
+    font-size:14px;
+    font-weight:700;
+    color:var(--azul-acinzentado);
+    letter-spacing:0.05em;
+    white-space:nowrap;
+  }
+
+  .section-head h2{
+    font-size:30px;
+  }
+
+  .section-intro{
+    max-width:760px;
+    color:var(--azul-claro);
+    font-weight:300;
+    margin-bottom:36px;
+    font-size:15.5px;
+  }
+
+  .section-intro strong{color:var(--off-white); font-weight:600;}
+
+  /* ============ PILLARS (SECAO 1) ============ */
+  .pillars{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+  }
+  .pillar{
+    border:1px solid var(--linha);
+    padding:26px 24px;
+    background:linear-gradient(180deg, rgba(123,167,188,0.04), transparent);
+  }
+  .pillar h4{font-size:15px; margin-bottom:8px;}
+  .pillar p{font-size:13.5px; color:var(--azul-claro); font-weight:300;}
+
+  .flow{
+    margin-top:34px;
+    padding:18px 24px;
+    border:1px dashed var(--linha);
+    font-size:13px;
+    color:var(--azul-acinzentado);
+    letter-spacing:0.02em;
+    text-align:center;
+    text-transform:uppercase;
+  }
+
+  /* ============ FASE CARDS ============ */
+  .fase{
+    border:1px solid var(--linha);
+    margin-bottom:22px;
+    position:relative;
+  }
+  .fase-top{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    padding:22px 28px;
+    border-bottom:1px solid var(--linha);
+    background:rgba(123,167,188,0.03);
+  }
+  .fase-top .fase-name{
+    display:flex;
+    align-items:center;
+    gap:16px;
+  }
+  .fase-num{
+    width:36px; height:36px;
+    border-radius:50%;
+    border:1px solid var(--azul-acinzentado);
+    display:flex; align-items:center; justify-content:center;
+    font-size:13px; font-weight:700;
+    color:var(--azul-acinzentado);
+    flex-shrink:0;
+  }
+  .fase-name h3{font-size:18px;}
+  .prazo-pill{
+    font-size:11px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--azul-profundo);
+    background:var(--azul-acinzentado);
+    padding:7px 14px;
+    border-radius:999px;
+    white-space:nowrap;
+    font-weight:700;
+  }
+  .fase-body{
+    padding:26px 28px 30px;
+  }
+  .fase-obj{
+    font-size:14.5px;
+    color:var(--azul-claro);
+    font-weight:300;
+    margin-bottom:22px;
+    max-width:760px;
+  }
+  .fase-obj strong{color:var(--off-white); font-weight:600;}
+
+  .grid-2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+  }
+
+  .sub-label{
+    font-size:11.5px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--azul-acinzentado);
+    margin-bottom:12px;
+    font-weight:700;
+  }
+
+  ul.check{list-style:none;}
+  ul.check li{
+    position:relative;
+    padding-left:24px;
+    font-size:13.8px;
+    color:var(--off-white);
+    margin-bottom:9px;
+    font-weight:300;
+  }
+  ul.check li::before{
+    content:"";
+    position:absolute;
+    left:0; top:6px;
+    width:9px; height:9px;
+    border:1px solid var(--azul-acinzentado);
+    border-radius:2px;
+    transform:rotate(45deg);
+  }
+
+  ul.plain{list-style:none;}
+  ul.plain li{
+    font-size:13.8px;
+    color:var(--azul-claro);
+    font-weight:300;
+    margin-bottom:8px;
+    padding-left:16px;
+    position:relative;
+  }
+  ul.plain li::before{
+    content:"•";
+    position:absolute; left:0; color:var(--azul-acinzentado);
+  }
+
+  .callout{
+    margin-top:20px;
+    padding:16px 20px;
+    background:rgba(123,167,188,0.06);
+    border-left:2px solid var(--azul-acinzentado);
+    font-size:13.5px;
+    color:var(--azul-claro);
+    font-weight:300;
+  }
+  .callout strong{color:var(--off-white);}
+
+  .questions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px 24px;
+    margin-top:6px;
+  }
+  .questions li{
+    font-size:13.3px;
+    color:var(--azul-claro);
+    font-weight:300;
+    padding-left:18px;
+    position:relative;
+    list-style:none;
+    margin-bottom:8px;
+  }
+  .questions li::before{
+    content:"?";
+    position:absolute; left:0; top:0;
+    color:var(--azul-acinzentado);
+    font-weight:700;
+  }
+
+  /* LP structure numbered list */
+  ol.lp-structure{
+    counter-reset:lp;
+    list-style:none;
+    columns:2;
+    column-gap:34px;
+  }
+  ol.lp-structure li{
+    counter-increment:lp;
+    font-size:13.6px;
+    font-weight:300;
+    margin-bottom:10px;
+    padding-left:28px;
+    position:relative;
+    break-inside:avoid;
+  }
+  ol.lp-structure li::before{
+    content:counter(lp);
+    position:absolute; left:0; top:-1px;
+    color:var(--azul-profundo);
+    background:var(--azul-acinzentado);
+    width:19px; height:19px;
+    border-radius:50%;
+    font-size:10.5px;
+    font-weight:800;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  .flow-blocks{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:14px;
+    margin-top:8px;
+  }
+  .flow-block{
+    border:1px solid var(--linha);
+    padding:18px 14px;
+    text-align:center;
+    font-size:12.5px;
+    color:var(--azul-claro);
+    font-weight:500;
+  }
+
+  .tag-list{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;}
+  .tag-list span{
+    font-size:12px;
+    border:1px solid var(--linha);
+    padding:6px 14px;
+    border-radius:999px;
+    color:var(--azul-claro);
+    font-weight:300;
+  }
+
+  .quotes-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+    margin-top:10px;
+  }
+  .quote{
+    padding:18px 20px;
+    background:var(--azul-profundo);
+    border-left:2px solid var(--azul-acinzentado);
+    font-size:13.8px;
+    font-weight:500;
+    font-style:italic;
+    color:var(--off-white);
+  }
+
+  /* ============ TIMELINE (SECAO 13) ============ */
+  .timeline{
+    position:relative;
+    padding-left:26px;
+    border-left:1px solid var(--linha);
+  }
+  .t-item{
+    position:relative;
+    padding-bottom:38px;
+  }
+  .t-item:last-child{padding-bottom:0;}
+  .t-item::before{
+    content:"";
+    position:absolute;
+    left:-31px; top:2px;
+    width:11px; height:11px;
+    background:var(--preto);
+    border:2px solid var(--azul-acinzentado);
+    border-radius:50%;
+  }
+  .t-item.aug::before{
+    background:var(--azul-acinzentado);
+  }
+  .t-period{
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:0.03em;
+    color:var(--azul-acinzentado);
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .t-item.aug .t-period{color:var(--off-white);}
+  .t-tags{display:flex; flex-wrap:wrap; gap:8px;}
+  .t-tags span{
+    font-size:12.5px;
+    font-weight:300;
+    color:var(--azul-claro);
+    background:rgba(123,167,188,0.06);
+    padding:7px 14px;
+    border-radius:6px;
+  }
+  .t-item.aug .t-tags span{
+    background:rgba(123,167,188,0.14);
+    color:var(--off-white);
+  }
+
+  /* ============ RESPONSAVEIS (SECAO 14) ============ */
+  .resp-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+  }
+  .resp-card{
+    border:1px solid var(--linha);
+    padding:24px;
+  }
+  .resp-card h4{font-size:15px; margin-bottom:12px; color:var(--azul-acinzentado);}
+
+  /* ============ PENDENCIAS (SECAO 15) ============ */
+  .pend-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px 30px;
+  }
+  .pend-grid li{
+    list-style:none;
+    font-size:14px;
+    font-weight:300;
+    padding:12px 0 12px 26px;
+    border-bottom:1px solid var(--linha);
+    position:relative;
+  }
+  .pend-grid li::before{
+    content:"○";
+    position:absolute; left:0; color:var(--azul-acinzentado);
+  }
+
+  /* ============ NEXT STEP / CTA ============ */
+  .next{
+    background:linear-gradient(135deg, var(--azul-profundo), var(--navy));
+    padding:80px 0;
+    text-align:center;
+  }
+  .next h2{font-size:32px; max-width:700px; margin:0 auto 18px;}
+  .next p{max-width:600px; margin:0 auto 28px; color:var(--azul-claro); font-weight:300; font-size:15.5px;}
+  .next ul{
+    display:inline-flex;
+    flex-wrap:wrap;
+    gap:12px;
+    justify-content:center;
+    list-style:none;
+    margin-bottom:10px;
+  }
+  .next ul li{
+    font-size:13px;
+    border:1px solid var(--linha);
+    padding:9px 18px;
+    border-radius:999px;
+    color:var(--off-white);
+    font-weight:500;
+  }
+
+  footer{
+    padding:40px 0;
+    text-align:center;
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--azul-acinzentado);
+  }
+
+  @media(max-width:820px){
+    .container{padding:0 22px;}
+    h1.title{font-size:36px;}
+    .hero-stats{grid-template-columns:1fr;}
+    .pillars{grid-template-columns:1fr;}
+    .grid-2{grid-template-columns:1fr;}
+    .questions{grid-template-columns:1fr;}
+    ol.lp-structure{columns:1;}
+    .flow-blocks{grid-template-columns:repeat(2,1fr);}
+    .resp-grid{grid-template-columns:1fr;}
+    .pend-grid{grid-template-columns:1fr;}
+    .quotes-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <div class="brandmark">
+      <div class="logo">Lázaro<span>Souto</span></div>
+      <div class="tag">Documento interno · Projeto</div>
+    </div>
+    <div class="eyebrow">Método Desinflama</div>
+    <h1 class="title">Cronograma detalhado de <span class="accent">estruturação</span> e início da operação</h1>
+    <p class="lede">Pessoal, organizamos aqui o cronograma com base no que alinhamos na reunião: deixar a estrutura do Desinflama redonda (página, checkout, entrega, criativos, trackeamento, dados, CRM/WhatsApp) para chegar em agosto com foco total em tráfego, aproveitando o mote de verão.</p>
+
+    <div class="hero-stats">
+      <div><span class="num">~23 dias</span><span class="lab">de estruturação, em julho</span></div>
+      <div><span class="num">11 fases</span><span class="lab">da estrutura ao tráfego</span></div>
+      <div><span class="num">Agosto</span><span class="lab">início oficial de tráfego</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- 1. OBJETIVO -->
+<section>
+  <div class="container">
+    <div class="section-head"><span class="idx">01</span><h2>Objetivo principal desta primeira fase</h2></div>
+    <p class="section-intro">Nesta primeira etapa, a prioridade é fazer o <strong>Método Desinflama</strong> funcionar como uma operação completa. Antes de pensar em outros produtos, consultoria, novos programas ou aplicativo próprio, o foco agora é:</p>
+
+    <div class="pillars">
+      <div class="pillar"><h4>Oferta &amp; jornada</h4><p>Organizar a oferta principal, finalizar a landing page, validar Hotmart e Mfit, configurar a jornada de compra.</p></div>
+      <div class="pillar"><h4>Criativos &amp; conteúdo</h4><p>Estruturar os criativos e organizar as editorias de conteúdo comercial, de treino, dor e prova.</p></div>
+      <div class="pillar"><h4>Dados &amp; retenção</h4><p>Configurar trackeamento, criar dashboard, pensar CRM e WhatsApp, iniciar tráfego com públicos mornos, remarketing e expansão.</p></div>
+    </div>
+
+    <div class="flow">conteúdo → criativo → página → checkout → compra → entrega → retenção → dados → otimização</div>
+  </div>
+</section>
+
+<!-- 2. MACROCRONOGRAMA -->
+<section class="dark">
+  <div class="container">
+    <div class="section-head"><span class="idx">02</span><h2>Macrocronograma</h2></div>
+    <p class="section-intro">Onze fases, do diagnóstico inicial até o início de tráfego em agosto, pensadas para evitar surpresa de prazo, orçamento e expectativa.</p>
+
+    <!-- FASE 1 -->
+    <div class="fase">
+      <div class="fase-top">
+        <div class="fase-name"><div class="fase-num">1</div><h3>Alinhamento, acessos e diagnóstico</h3></div>
+        <div class="prazo-pill">Dias 1 a 3 · 09 a 11 de julho</div>
+      </div>
+      <div class="fase-body">
+        <p class="fase-obj">Reunir tudo que já existe, entender o status real da estrutura e <strong>destravar os acessos</strong>.</p>
+        <div class="grid-2">
+          <div>
+            <div class="sub-label">Entregas</div>
+            <ul class="check">
+              <li>Solicitação dos acessos necessários</li>
+              <li>Revisão dos materiais já enviados</li>
+              <li>Revisão da Landing Page desenvolvida pelo Studio Wica</li>
+              <li>Análise da identidade visual e do mídia kit</li>
+              <li>Levantamento da estrutura atual da Hotmart e Mfit</li>
+              <li>Verificação da BM, conta de anúncios e Pixel</li>
+              <li>Entendimento da base de CRM/WhatsApp</li>
+              <li>Organização dos pontos pendentes</li>
+            </ul>
+          </div>
+          <div>
+            <div class="sub-label">Acessos necessários</div>
+            <div class="tag-list">
+              <span>Hotmart</span><span>Mfit</span><span>Meta BM</span><span>Conta de anúncios</span>
+              <span>Pixel</span><span>Instagram</span><span>Domínio</span><span>Hospedagem da LP</span>
+              <span>CRM/base de contatos</span><span>WhatsApp/grupo</span><span>Banco de criativos</span>
+              <span>Antes e depois</span><span>Dados de venda</span><span>Alunos ativos/recorrência</span>
+            </div>
+          </div>
+        </div>
+        <div class="callout"><strong>Ponto de atenção:</strong> se o Lázaro tiver dificuldade para localizar acessos, fazemos uma call curta para pegar tudo junto e não deixar o projeto parado por falta de acesso.</div>
+      </div>
+    </div>
+
+    <!-- FASE 2 -->
+    <div class="fase">
+      <div class="fase-top">
+        <div class="fase-name"><div class="fase-num">2</div><h3>Estrutura comercial, oferta e planos</h3></div>
+        <div class="prazo-pill">Dias 2 a 5 · 10 a 13 de julho</div>
+      </div>
+      <div class="fase-body">
+        <p class="fase-obj">Validar exatamente <strong>o que será vendido</strong> nesta primeira fase e como a oferta será apresentada.</p>
+        <div class="grid-2">
+          <div>
+            <div class="sub-label">Entregas</div>
+            <ul class="check">
+              <li>Plano mensal, trimestral e/ou semestral</li>
+              <li>Plano priorizado na página</li>
+              <li>Cancelamento/reembolso</li>
+              <li>Possibilidade de order bump</li>
+              <li>Upsells futuros e o que fica para a 2ª etapa</li>
+            </ul>
+          </div>
+          <div>
+            <div class="sub-label">Recomendação inicial</div>
+            <p style="font-size:13.8px; color:var(--azul-claro); font-weight:300; margin-bottom:14px;">Nesta primeira fase, o foco permanece no Desinflama. Depois de validar página, criativos e fluxo de venda, avaliamos:</p>
+            <ul class="plain">
+              <li>Order bump no checkout</li>
+              <li>Cross-sell e consultoria</li>
+              <li>Produtos complementares</li>
+              <li>Projetos com embaixadoras</li>
+              <li>Outros programas do Lázaro</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FASE 3 -->
+    <div class="fase">
+      <div class="fase-top">
+        <div class="fase-name"><div class="fase-num">3</div><h3>Landing page</h3></div>
+        <div class="prazo-pill">Dias 4 a 12 · 12 a 20 de julho</div>
+      </div>
+      <div class="fase-body">
+        <p class="fase-obj">Transformar a LP atual em uma página pronta para conversão, mantendo a estética do Lázaro e a identidade visual já criada. A pessoa não está comprando só um treino: está comprando uma <strong>imagem de corpo, rotina, lifestyle, disciplina e transformação</strong>.</p>
+        <div class="sub-label">Estrutura sugerida da página</div>
+        <ol class="lp-structure">
+          <li>Primeira dobra com promessa forte</li>
+          <li>Apresentação rápida do Desinflama</li>
+          <li>Contexto do Lázaro</li>
+          <li>Dor principal do público</li>
+          <li>O que o método entrega</li>
+          <li>Pilares do método</li>
+          <li>Para quem é</li>
+          <li>Como funciona por dentro</li>
+          <li>Antes e depois</li>
+          <li>Relatos de alunas</li>
+          <li>Planos</li>
+          <li>Garantia/cancelamento</li>
+          <li>FAQ</li>
+          <li>CTA final</li>
+        </ol>
+        <div class="callout"><strong>Cases:</strong> selecionar os melhores antes/depois com nome e relato organizado. Se as fotos atuais não estiverem adequadas, o Lázaro pode pedir a alunas que refaçam em formato melhor.</div>
+      </div>
+    </div>
+
+    <!-- FASE 4 -->
+    <div class="fase">
+      <div class="fase-top">
+        <div class="fase-name"><div class="fase-num">4</div><h3>Hotmart, Mfit e jornada de compra</h3></div>
+        <div class="prazo-pill">Dias 5 a 13 · 13 a 21 de julho</div>
+      </div>
+      <div class="fase-body">
+        <p class="fase-obj">Garantir que a pessoa consiga <strong>comprar, receber acesso e entrar na jornada</strong> sem falhas.</p>
+        <div class="grid-2">
+          <div>
+            <div class="sub-label">Entregas</div>
+            <ul class="check">
+              <li>Revisão do produto e dos planos na Hotmart</li>
+              <li>Configuração do checkout e da página de obrigado</li>
+              <li>Verificação da integração com a Mfit</li>
+              <li>Teste de compra, acesso e experiência do aluno</li>
+              <li>Revisão dos e-mails automáticos e do suporte</li>
+              <li>Validação da jornada pós-compra</li>
+            </ul>
+          </div>
+          <div>
+            <div class="sub-label">Perguntas a responder</div>
+            <ul class="questions">
+              <li>A Hotmart já está 100% configurada?</li>
+              <li>Os planos estão ativos?</li>
+              <li>A Mfit libera acesso automaticamente?</li>
+              <li>Existe atraso entre compra e acesso?</li>
+              <li>O aluno recebe instruções claras?</li>
+              <li>Existe página de obrigado e e-mail de boas-vindas?</li>
+              <li>Quem resolve problema de acesso?</li>
+              <li>Onde vemos dados de compra, cancelamento e recorrência?</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FASE 5 -->
+    <div class="fase">
+      <div class="fase-top">
+        <div class="fase-name"><div class="fase-num">5</div><h3>Trackeamento e dados</h3></div>
+        <div class="prazo-pill">Dias 8 a 16 · 16 a 24 de julho</div>
+      </div>
+      <div class="fase-body">
+        <p class="fase-obj">Garantir que toda a jornada seja <strong>medida</strong> antes de iniciar tráfego com mais força.</p>
+        <div class="grid-2">
+          <div>
+            <div class="sub-label">Entregas</div>
+            <ul class="check">
+              <li>Instalação/conferência do Pixel</li>
+              <li>Configuração do GTM, se necessário</li>
+              <li>Configuração de eventos e UTMs</li>
+              <li>Integração com Hotmart</li>
+              <li>Teste de eventos e de compra</li>
+              <li>Conferência no Gerenciador de Eventos</li>
+              <li>Validação dos dados no dashboard</li>
+            </ul>
+          </div>
+          <div>
+            <div class="sub-label">Eventos mínimos</div>
+            <div class="tag-list">
+              <span>Visualização da página</span><span>Clique no botão</span><span>Início de checkout</span>
+              <span>Compra</span><span>Lead/WhatsApp</span><span>Assinatura</span><span>Cancelamento</span>
+            </div>
+          </div>
+        </div>
+        <div class="callout"><strong>Ponto de atenção:</strong> os dados de atividade dentro da Mfit podem não ser 100% fiéis, pois alguns alunos não registram corretamente início e fim de treino. Vamos cruzar com indicadores complementares: grupo de suporte, recorrência, permanência na assinatura e dados da Hotmart.</div>
+      </div>
+    </div>
+
+    <!-- FASE 6 -->
+    <div class="fase">
+      <div class="fase-top">
+        <div class="fase-name"><div class="fase-num">6</div><h3>Dashboard de acompanhamento</h3></div>
+        <div class="prazo-pill">Dias 12 a 18 · 20 a 26 de julho</div>
+      </div>
+      <div class="fase-body">
+        <p class="fase-obj">Criar uma visão simples e útil para acompanhar <strong>venda, mídia e retenção</strong>.</p>
+        <div class="grid-2">
+          <div>
+            <div class="sub-label">Entregas</div>
+            <ul class="check">
+              <li>Definição dos indicadores principais</li>
+              <li>Criação do dashboard inicial</li>
+              <li>Conexão com dados disponíveis</li>
+              <li>Organização por período, campanha, criativo e plano</li>
+              <li>Visões de vendas, investimento e retorno</li>
+            </ul>
+          </div>
+          <div>
+            <div class="sub-label">Indicadores sugeridos</div>
+            <div class="tag-list">
+              <span>Investimento</span><span>Faturamento</span><span>CAC</span><span>ROAS</span>
+              <span>Conversão da LP</span><span>Checkout iniciado</span><span>Plano mais vendido</span>
+              <span>Origem das vendas</span><span>Cancelamentos</span><span>Retenção</span>
+              <span>LTV estimado</span><span>Alunos ativos</span><span>Leads recuperados</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FASE 7 -->
+    <div class="fase">
+      <div class="fase-top">
+        <div class="fase-name"><div class="fase-num">7</div><h3>CRM, WhatsApp e recuperação</h3></div>
+        <div class="prazo-pill">Dias 14 a 20 · 22 a 28 de julho</div>
+      </div>
+      <div class="fase-body">
+        <p class="fase-obj">Estruturar uma comunicação que ajude na conversão e retenção, <strong>sem parecer varejo, desconto desesperado ou mensagem insistente</strong>, com tom natural e a personalidade do Lázaro.</p>
+        <div class="grid-2">
+          <div>
+            <div class="sub-label">Entregas</div>
+            <ul class="check">
+              <li>Mapeamento da base atual e definição de públicos</li>
+              <li>Fluxo de reativação, abandono, pós-compra e retenção</li>
+              <li>Avaliação de ferramenta intermediária para WhatsApp</li>
+              <li>Tom e frequência de contato definidos</li>
+              <li>Testes iniciais</li>
+            </ul>
+          </div>
+          <div>
+            <div class="sub-label">Fluxos sugeridos</div>
+            <ul class="plain">
+              <li><strong style="color:var(--off-white); font-weight:600;">Reativação:</strong> quem já conhece o Lázaro</li>
+              <li><strong style="color:var(--off-white); font-weight:600;">Abandono de checkout:</strong> chegou e não comprou</li>
+              <li><strong style="color:var(--off-white); font-weight:600;">Pós-compra:</strong> boas-vindas e primeiros passos</li>
+              <li><strong style="color:var(--off-white); font-weight:600;">Retenção:</strong> suporte, grupo e acompanhamento</li>
+              <li><strong style="color:var(--off-white); font-weight:600;">Oferta futura:</strong> consultoria, upgrade, order bump</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FASE 8 -->
+    <div class="fase">
+      <div class="fase-top">
+        <div class="fase-name"><div class="fase-num">8</div><h3>Alinhamento com Studio Wica sobre conteúdos e criativos</h3></div>
+        <div class="prazo-pill">Dias 5 a 20 · 13 a 28 de julho</div>
+      </div>
+      <div class="fase-body">
+        <p class="fase-obj">Organizar, junto ao Studio Wica, uma rotina de conteúdos para orgânico e tráfego pago. O Lázaro já cria muito conteúdo, mas nem todos os vídeos têm chamada para o Desinflama. Por isso, <strong>precisamos de editorias e de uma quantidade mínima de vídeos comerciais</strong>.</p>
+        <div class="sub-label">Editorias sugeridas</div>
+        <div class="grid-2">
+          <div>
+            <ul class="plain">
+              <li><strong style="color:var(--off-white); font-weight:600;">Comercial direto:</strong> 3 a 4 vídeos/semana com CTA claro</li>
+              <li><strong style="color:var(--off-white); font-weight:600;">Treino e rotina:</strong> execução, bastidores, disciplina</li>
+              <li><strong style="color:var(--off-white); font-weight:600;">Prova:</strong> antes e depois, relatos, prints</li>
+              <li><strong style="color:var(--off-white); font-weight:600;">Embaixadoras:</strong> 2ª etapa, novas audiências</li>
+            </ul>
+          </div>
+          <div>
+            <div class="sub-label">Dor / desejo</div>
+            <div class="tag-list">
+              <span>Perder barriga</span><span>Diminuir flanco</span><span>Voltar a treinar</span>
+              <span>Corpo para o verão</span><span>Dificuldade de constância</span><span>Treino sem tempo</span>
+              <span>Desinchar</span><span>Recuperar autoestima</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FASE 9 -->
+    <div class="fase">
+      <div class="fase-top">
+        <div class="fase-name"><div class="fase-num">9</div><h3>Estratégia inicial de tráfego</h3></div>
+        <div class="prazo-pill">Planejamento dias 16–21 · 24 a 29 de julho · início em agosto</div>
+      </div>
+      <div class="fase-body">
+        <p class="fase-obj">Entrar em agosto com <strong>campanhas prontas</strong> para captar vendas e alimentar a base.</p>
+        <div class="grid-2">
+          <div>
+            <div class="sub-label">Morno: conversão</div>
+            <p style="font-size:13.3px; color:var(--azul-claro); font-weight:300;">Seguidores, engajados, visitantes da LP, checkout iniciado, base de CRM, alunos antigos. Objetivo: primeiras vendas com menor CAC.</p>
+          </div>
+          <div>
+            <div class="sub-label">Remarketing: recuperação</div>
+            <p style="font-size:13.3px; color:var(--azul-claro); font-weight:300;">Visitou a LP, iniciou checkout, clicou, chamou no WhatsApp. Objetivo: recuperar vendas que ficaram no caminho.</p>
+          </div>
+        </div>
+        <div class="callout"><strong>Frio (expansão):</strong> atrair quem ainda não conhece o Lázaro, com conteúdos de cara mais orgânica, para gerar seguidores, alimentar remarketing e criar demanda futura.</div>
+      </div>
+    </div>
+
+    <!-- FASE 10 -->
+    <div class="fase">
+      <div class="fase-top">
+        <div class="fase-name"><div class="fase-num">10</div><h3>Mote de campanha: verão</h3></div>
+        <div class="prazo-pill">Construção dias 14–21 · 22 a 29 de julho · uso a partir de agosto</div>
+      </div>
+      <div class="fase-body">
+        <p class="fase-obj">Aproveitar o período mais forte para produto fitness. Mesmo o verão começando só em dezembro, o público se movimenta antes, e <strong>isso abre uma janela muito boa para o Desinflama</strong>.</p>
+        <div class="quotes-grid">
+          <div class="quote">"O corpo do verão começa no frio."</div>
+          <div class="quote">"Quem começa em agosto chega diferente em dezembro."</div>
+          <div class="quote">"O verão não espera sua motivação chegar."</div>
+          <div class="quote">"Dezembro parece longe, até chegar."</div>
+        </div>
+        <div class="sub-label" style="margin-top:22px;">Aplicações</div>
+        <div class="tag-list">
+          <span>Landing page</span><span>Criativos</span><span>Stories</span><span>Anúncios</span>
+          <span>Remarketing</span><span>CTA dos vídeos</span><span>WhatsApp</span><span>E-mails</span><span>Campanhas de agosto</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FASE 11 -->
+    <div class="fase">
+      <div class="fase-top">
+        <div class="fase-name"><div class="fase-num">11</div><h3>Reuniões e gestão do projeto</h3></div>
+        <div class="prazo-pill">Contínuo</div>
+      </div>
+      <div class="fase-body">
+        <p class="fase-obj">Manter o projeto organizado, com rotina de decisão e acompanhamento.</p>
+        <div class="grid-2">
+          <div>
+            <div class="sub-label">Start &amp; semanais (mês 1)</div>
+            <ul class="plain">
+              <li>Responsáveis, acessos, prioridades, datas e entregas</li>
+              <li>Andamento, pendências e gargalos</li>
+              <li>LP, Hotmart/Mfit, trackeamento, criativos, tráfego, CRM, dados</li>
+            </ul>
+          </div>
+          <div>
+            <div class="sub-label">Quinzenais &amp; fechamento mensal</div>
+            <ul class="plain">
+              <li>Vendas, CAC, ROAS, conversão, retenção</li>
+              <li>Criativos vencedores e públicos</li>
+              <li>Investimento, faturamento, aprendizados e meta do mês seguinte</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- LINHA DO TEMPO -->
+<section>
+  <div class="container">
+    <div class="section-head"><span class="idx">03</span><h2>Linha do tempo resumida</h2></div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-period">Dias 1–3 · 09 a 11 de julho</div>
+        <div class="t-tags"><span>Solicitar acessos</span><span>Revisar materiais</span><span>Status Hotmart/Mfit</span><span>Analisar LP atual</span><span>Levantar pendências</span></div>
+      </div>
+      <div class="t-item">
+        <div class="t-period">Dias 4–7 · 12 a 15 de julho</div>
+        <div class="t-tags"><span>Validar oferta</span><span>Revisar planos</span><span>Começar ajustes da LP</span><span>Organizar criativos</span><span>Definir editorias</span><span>Mapear dados</span></div>
+      </div>
+      <div class="t-item">
+        <div class="t-period">Dias 8–12 · 16 a 20 de julho</div>
+        <div class="t-tags"><span>Finalizar LP</span><span>Configurar Hotmart</span><span>Validar Mfit</span><span>Começar trackeamento</span><span>Separar cases</span></div>
+      </div>
+      <div class="t-item">
+        <div class="t-period">Dias 13–16 · 21 a 24 de julho</div>
+        <div class="t-tags"><span>Testar checkout</span><span>Testar compra e acesso</span><span>Configurar eventos</span><span>Validar Pixel</span><span>Iniciar dashboard</span></div>
+      </div>
+      <div class="t-item">
+        <div class="t-period">Dias 17–20 · 25 a 28 de julho</div>
+        <div class="t-tags"><span>Finalizar dashboard</span><span>Estruturar CRM/WhatsApp</span><span>Organizar fluxos</span><span>Fechar matriz de criativos</span><span>Preparar campanhas</span></div>
+      </div>
+      <div class="t-item">
+        <div class="t-period">Dias 21–23 · 29 a 31 de julho</div>
+        <div class="t-tags"><span>Revisão geral</span><span>Teste final da jornada</span><span>Ajustes finais da LP</span><span>Campanhas prontas para subir</span><span>Agosto planejado</span></div>
+      </div>
+      <div class="t-item aug">
+        <div class="t-period">Agosto</div>
+        <div class="t-tags"><span>Início oficial de tráfego</span><span>Campanhas morno</span><span>Remarketing</span><span>Expansão</span><span>Análise semanal</span><span>Mote de verão</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESPONSAVEIS -->
+<section class="dark">
+  <div class="container">
+    <div class="section-head"><span class="idx">04</span><h2>Responsáveis por frente</h2></div>
+    <div class="resp-grid">
+      <div class="resp-card">
+        <h4>Estratégia e cronograma</h4>
+        <p style="font-size:13.6px; color:var(--azul-claro); font-weight:300;">Organizar o projeto, puxar prioridades, destrinchar prazos e acompanhar o andamento.</p>
+      </div>
+      <div class="resp-card">
+        <h4>Lázaro</h4>
+        <ul class="plain">
+          <li>Validação da comunicação</li>
+          <li>Gravação de conteúdos e CTAs</li>
+          <li>Envio de acessos e cases</li>
+          <li>Participação em decisões estratégicas</li>
+        </ul>
+      </div>
+      <div class="resp-card">
+        <h4>Studio Wica / design</h4>
+        <ul class="plain">
+          <li>Identidade visual e ajustes de LP</li>
+          <li>Criativos visuais e organização estética</li>
+          <li>Apoio nas editorias e peças de campanha</li>
+        </ul>
+      </div>
+      <div class="resp-card">
+        <h4>Técnica / operação</h4>
+        <ul class="plain">
+          <li>Hotmart, Mfit e integrações</li>
+          <li>Pixel, GTM e automações</li>
+          <li>WhatsApp e dashboard</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PENDENCIAS -->
+<section>
+  <div class="container">
+    <div class="section-head"><span class="idx">05</span><h2>Pendências principais para destravar</h2></div>
+    <ul class="pend-grid">
+      <li>Acessos completos</li>
+      <li>Confirmação dos planos</li>
+      <li>Confirmação da Hotmart</li>
+      <li>Confirmação da Mfit</li>
+      <li>Quem ajusta/desenvolve a LP</li>
+      <li>Envio dos melhores cases</li>
+      <li>Envio dos melhores vídeos orgânicos</li>
+      <li>Orçamento inicial de mídia</li>
+      <li>Ferramenta para WhatsApp/CRM</li>
+      <li>Validação do dashboard</li>
+      <li>Aprovação da linha de comunicação de verão</li>
+    </ul>
+  </div>
+</section>
+
+<!-- NEXT STEP -->
+<div class="next">
+  <div class="container">
+    <h2>Próximo passo</h2>
+    <p>Após a validação deste cronograma, marcamos uma reunião de start mais prática para sair do alinhamento e entrar na execução com menos risco de atraso, retrabalho ou expectativa desalinhada.</p>
+    <ul>
+      <li>Confirmar responsáveis</li>
+      <li>Pegar acessos</li>
+      <li>Validar datas</li>
+      <li>Dividir tarefas</li>
+      <li>Definir entregas da 1ª semana</li>
+    </ul>
+  </div>
+</div>
+
+<footer>Lázaro Souto · Método Desinflama · Método que transforma. Resultados que ficam.</footer>
+
+</body>
+</html>

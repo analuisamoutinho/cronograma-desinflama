@@ -680,10 +680,106 @@
   }
   .cross-card p{font-size:13px; font-weight:300; color:var(--azul-claro);}
 
+  /* ============ ROTEIROS / MATRIZ 3-3-3 (ABA 4) ============ */
+  .matrix-legend{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--linha);
+    border:1px solid var(--linha);
+    margin-bottom:44px;
+  }
+  .matrix-legend div{background:var(--preto); padding:22px 24px;}
+  .matrix-legend .m-dim{
+    font-size:11px; font-weight:800; letter-spacing:0.12em;
+    text-transform:uppercase; margin-bottom:8px; display:block;
+  }
+  .matrix-legend .m-dim.g{color:#7FC8A9;}
+  .matrix-legend .m-dim.b{color:var(--azul-acinzentado);}
+  .matrix-legend .m-dim.r{color:#E08A8A;}
+  .matrix-legend p{font-size:13px; font-weight:300; color:var(--azul-claro);}
+  .matrix-legend p strong{color:var(--off-white); font-weight:600;}
+
+  .funnel-head{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin:56px 0 8px;
+  }
+  .funnel-head:first-of-type{margin-top:0;}
+  .funnel-head .funnel-pill{
+    font-size:11px; font-weight:800; letter-spacing:0.1em;
+    text-transform:uppercase;
+    padding:7px 16px; border-radius:999px;
+    background:rgba(127,200,169,0.12); color:#7FC8A9;
+    border:1px solid rgba(127,200,169,0.35);
+    white-space:nowrap;
+  }
+  .funnel-head h3{font-size:20px;}
+  .funnel-desc{
+    font-size:13.8px; font-weight:300; color:var(--azul-claro);
+    max-width:760px; margin-bottom:26px;
+  }
+
+  .angle-label{
+    font-size:12px; font-weight:800; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--azul-acinzentado);
+    margin:26px 0 14px;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--linha);
+  }
+
+  .creative-row{
+    display:grid;
+    grid-template-columns:1.25fr 1fr 1fr;
+    gap:16px;
+    margin-bottom:6px;
+  }
+  .creative-card{
+    border:1px solid var(--linha);
+    padding:20px 22px;
+    background:linear-gradient(180deg, rgba(123,167,188,0.04), transparent);
+  }
+  .fmt-badge{
+    display:inline-block;
+    font-size:10px; font-weight:800; letter-spacing:0.1em;
+    text-transform:uppercase;
+    padding:4px 12px; border-radius:999px;
+    margin-bottom:12px;
+  }
+  .fmt-badge.video{background:rgba(127,200,169,0.12); color:#7FC8A9; border:1px solid rgba(127,200,169,0.35);}
+  .fmt-badge.estatico{background:rgba(123,167,188,0.12); color:var(--azul-acinzentado); border:1px solid rgba(123,167,188,0.4);}
+  .fmt-badge.carrossel{background:rgba(224,138,138,0.1); color:#E08A8A; border:1px solid rgba(224,138,138,0.35);}
+  .creative-card h4{font-size:14px; margin-bottom:10px;}
+  .creative-card .script-line{
+    font-size:12.8px; font-weight:300; color:var(--azul-claro);
+    margin-bottom:8px;
+  }
+  .creative-card .script-line strong{
+    color:var(--off-white); font-weight:700;
+    font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase;
+    display:block; margin-bottom:2px;
+  }
+  .creative-card em{color:var(--off-white); font-style:italic;}
+
+  .wica-split{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+    margin-bottom:44px;
+  }
+  .wica-split .split-col{border:1px solid var(--linha); padding:24px 26px;}
+  .wica-split h4{font-size:15px; margin-bottom:10px;}
+  .wica-split h4 span{font-size:12px; font-weight:400; color:var(--azul-acinzentado);}
+  .wica-split p{font-size:13.3px; font-weight:300; color:var(--azul-claro);}
+
   @media(max-width:820px){
     .status-summary{grid-template-columns:1fr;}
     .status-grid{grid-template-columns:1fr;}
     .cross-grid{grid-template-columns:1fr;}
+    .matrix-legend{grid-template-columns:1fr;}
+    .creative-row{grid-template-columns:1fr;}
+    .wica-split{grid-template-columns:1fr;}
     .container{padding:0 22px;}
     h1.title{font-size:36px;}
     .hero-stats{grid-template-columns:1fr;}
@@ -723,6 +819,7 @@
     <button class="tab-btn active" data-tab="tab-cronograma">Cronograma</button>
     <button class="tab-btn" data-tab="tab-status">Status · OK &amp; Pendente</button>
     <button class="tab-btn" data-tab="tab-wica">Solicitações · Studio Wica</button>
+    <button class="tab-btn" data-tab="tab-roteiros">Roteiros · Criativos 3-3-3</button>
   </div>
 </nav>
 
@@ -1381,6 +1478,251 @@
 </section>
 
 </div><!-- /tab-wica -->
+
+<!-- ================= ABA 4 · ROTEIROS / MATRIZ 3-3-3 ================= -->
+<div id="tab-roteiros" class="tab-content">
+
+<section>
+  <div class="container">
+    <div class="section-head"><span class="idx">R1</span><h2>Matriz de criativos 3-3-3</h2></div>
+    <span class="updated-pill">27 combinações · nenhuma igual à outra</span>
+    <p class="section-intro">Plano de criativos seguindo a matriz 3-3-3: <strong>3 níveis de funil × 3 ângulos de mensagem × 3 formatos = 27 testes únicos</strong>. O algoritmo do Meta penaliza redundância — anúncios parecidos competem entre si —, então cada célula é um conceito diferente.</p>
+
+    <div class="matrix-legend">
+      <div>
+        <span class="m-dim g">Eixo 1 · Nível de funil</span>
+        <p><strong>TOF</strong> (descoberta), <strong>MOF</strong> (consideração) e <strong>BOF</strong> (conversão). Do público frio ao remarketing pronto para comprar.</p>
+      </div>
+      <div>
+        <span class="m-dim b">Eixo 2 · Ângulo da mensagem</span>
+        <p><strong>Dor</strong> (inchaço, falta de constância), <strong>Desejo</strong> (corpo do verão, rotina, autoestima) e <strong>Prova social</strong> (antes/depois, relatos de alunas).</p>
+      </div>
+      <div>
+        <span class="m-dim r">Eixo 3 · Formato</span>
+        <p><strong>Vídeo</strong> (roteiro para gravar), <strong>Estático</strong> e <strong>Carrossel</strong> (design do Studio Wica).</p>
+      </div>
+    </div>
+
+    <div class="section-head"><span class="idx">R2</span><h2>Divisão de produção</h2></div>
+    <div class="wica-split">
+      <div class="split-col">
+        <h4>🎬 9 roteiros de vídeo <span>· gravação com o Lázaro e alunas</span></h4>
+        <p>Roteiros construídos em conjunto (Ana + Studio Wica) e gravados pelo Lázaro ou alunas. Estilo natural, com a cara do conteúdo orgânico dele — nada de cara de comercial.</p>
+      </div>
+      <div class="split-col">
+        <h4>🎨 9 estáticos + 9 carrosséis <span>· design do Studio Wica</span></h4>
+        <p>Artes desenvolvidas pelo Studio Wica a partir dos conceitos abaixo, usando a identidade visual do Desinflama, os antes/depois do Drive e o mote de verão.</p>
+      </div>
+    </div>
+
+    <div class="section-head"><span class="idx">R3</span><h2>Os 27 criativos</h2></div>
+
+    <!-- ============ TOF ============ -->
+    <div class="funnel-head"><span class="funnel-pill">TOF · Descoberta</span><h3>Público frio, que ainda não conhece o Lázaro</h3></div>
+    <p class="funnel-desc">Objetivo: gerar atenção e reconhecimento sem vender direto. Cara de conteúdo orgânico, sem cara de anúncio. CTA suave (seguir, assistir, conhecer).</p>
+
+    <div class="angle-label">Ângulo · Dor</div>
+    <div class="creative-row">
+      <div class="creative-card">
+        <span class="fmt-badge video">🎬 Vídeo · gravar</span>
+        <h4>"Não é gordura. É inflamação."</h4>
+        <div class="script-line"><strong>Gancho (3s)</strong><em>"Se você treina, come certinho e mesmo assim vive inchada… presta atenção nisso."</em></div>
+        <div class="script-line"><strong>Desenvolvimento</strong>Lázaro explica de forma simples o que é o corpo inflamado: sono ruim, ultraprocessado, treino errado, rotina inflamada. Sem promessa, só clareza.</div>
+        <div class="script-line"><strong>CTA</strong><em>"Me segue aqui que eu te mostro como desinflamar de verdade."</em></div>
+      </div>
+      <div class="creative-card">
+        <span class="fmt-badge estatico">🎨 Estático · Wica</span>
+        <h4>"Não é falta de treino. É excesso de inflamação."</h4>
+        <div class="script-line">Headline forte em tipografia grande sobre foto de contexto real (mulher desconfortável com a roupa, espelho). Sub: <em>"Descubra a diferença."</em></div>
+      </div>
+      <div class="creative-card">
+        <span class="fmt-badge carrossel">🎨 Carrossel · Wica</span>
+        <h4>"5 sinais de que seu corpo está inflamado"</h4>
+        <div class="script-line">Capa com a pergunta → 5 slides, um sinal por slide (inchaço ao acordar, roupa apertando, cansaço, digestão, estagnação no treino) → slide final: <em>"Reconheceu algum? Me segue que eu te explico como reverter."</em></div>
+      </div>
+    </div>
+
+    <div class="angle-label">Ângulo · Desejo</div>
+    <div class="creative-row">
+      <div class="creative-card">
+        <span class="fmt-badge video">🎬 Vídeo · gravar</span>
+        <h4>"O corpo do verão começa no frio"</h4>
+        <div class="script-line"><strong>Gancho (3s)</strong><em>"Todo mundo quer o corpo do verão. Quase ninguém quer o inverno que constrói ele."</em></div>
+        <div class="script-line"><strong>Desenvolvimento</strong>Bastidores da rotina do Lázaro e de alunas: treino, disciplina, constância. Estética lifestyle, cortes rápidos, sem falar de venda.</div>
+        <div class="script-line"><strong>CTA</strong><em>"Dezembro parece longe. Até chegar."</em></div>
+      </div>
+      <div class="creative-card">
+        <span class="fmt-badge estatico">🎨 Estático · Wica</span>
+        <h4>Mote de verão aspiracional</h4>
+        <div class="script-line">Foto aspiracional (praia, luz de verão, treino ao ar livre) com a frase <em>"O corpo do verão começa no frio."</em> assinada pelo Desinflama. Sem oferta.</div>
+      </div>
+      <div class="creative-card">
+        <span class="fmt-badge carrossel">🎨 Carrossel · Wica</span>
+        <h4>"Como seria acordar desinchada todos os dias"</h4>
+        <div class="script-line">Slides descrevendo o cenário desejado: acordar leve, roupa vestindo bem, energia no treino, constância sem sofrimento → fecho: <em>"Isso não é sorte. É método."</em></div>
+      </div>
+    </div>
+
+    <div class="angle-label">Ângulo · Prova social</div>
+    <div class="creative-row">
+      <div class="creative-card">
+        <span class="fmt-badge video">🎬 Vídeo · gravar</span>
+        <h4>Lázaro reage ao antes/depois de uma aluna</h4>
+        <div class="script-line"><strong>Gancho (3s)</strong>Foto do antes/depois na tela. <em>"Isso aqui não foi dieta maluca."</em></div>
+        <div class="script-line"><strong>Desenvolvimento</strong>Lázaro conta a história da aluna: de onde ela partiu, o que travava ela, o que mudou na rotina. Tom de bastidor, não de propaganda.</div>
+        <div class="script-line"><strong>CTA</strong><em>"Quer ver mais histórias assim? Me segue."</em></div>
+      </div>
+      <div class="creative-card">
+        <span class="fmt-badge estatico">🎨 Estático · Wica</span>
+        <h4>Antes/depois com nome</h4>
+        <div class="script-line">O antes/depois mais impactante do Drive, com nome da aluna e uma frase curta do relato dela em destaque. Layout limpo, credibilidade em primeiro lugar.</div>
+      </div>
+      <div class="creative-card">
+        <span class="fmt-badge carrossel">🎨 Carrossel · Wica</span>
+        <h4>"3 alunas. 3 rotinas diferentes. Mesmo resultado."</h4>
+        <div class="script-line">Um slide por aluna: foto + mini-história (mãe sem tempo, quem já tentou de tudo, quem voltou a treinar do zero) → fecho: <em>"O método se adapta à rotina. Não o contrário."</em></div>
+      </div>
+    </div>
+
+    <!-- ============ MOF ============ -->
+    <div class="funnel-head"><span class="funnel-pill">MOF · Consideração</span><h3>Já conhece o Lázaro ou o problema — apresentar o método</h3></div>
+    <p class="funnel-desc">Objetivo: mostrar o que é o Desinflama por dentro e por que ele é diferente. CTA médio: conhecer a página, saber como funciona.</p>
+
+    <div class="angle-label">Ângulo · Dor</div>
+    <div class="creative-row">
+      <div class="creative-card">
+        <span class="fmt-badge video">🎬 Vídeo · gravar</span>
+        <h4>"Por que os desafios de 21 dias nunca funcionaram pra você"</h4>
+        <div class="script-line"><strong>Gancho (3s)</strong><em>"Você já fez desafio de 21 dias, detox, projeto verão… e o inchaço voltou. Quer saber por quê?"</em></div>
+        <div class="script-line"><strong>Desenvolvimento</strong>Lázaro explica: soluções de curto prazo tratam sintoma, não rotina. O Desinflama trabalha treino + hábito + acompanhamento contínuo.</div>
+        <div class="script-line"><strong>CTA</strong><em>"O link tá aqui embaixo. Vê como o método funciona."</em></div>
+      </div>
+      <div class="creative-card">
+        <span class="fmt-badge estatico">🎨 Estático · Wica</span>
+        <h4>"Você não precisa de mais um treino. Precisa de um método."</h4>
+        <div class="script-line">Headline em destaque, visual comparando "treino solto" vs. "método completo" de forma minimalista. CTA: <em>"Conheça o Desinflama."</em></div>
+      </div>
+      <div class="creative-card">
+        <span class="fmt-badge carrossel">🎨 Carrossel · Wica</span>
+        <h4>"4 erros que mantêm você inchada mesmo treinando"</h4>
+        <div class="script-line">Um erro por slide (treino sem progressão, constância quebrada, hábito inflamatório, falta de acompanhamento) → último slide apresenta o Desinflama como o sistema que corrige os 4.</div>
+      </div>
+    </div>
+
+    <div class="angle-label">Ângulo · Desejo</div>
+    <div class="creative-row">
+      <div class="creative-card">
+        <span class="fmt-badge video">🎬 Vídeo · gravar</span>
+        <h4>"O Desinflama por dentro"</h4>
+        <div class="script-line"><strong>Gancho (3s)</strong><em>"Deixa eu te mostrar exatamente o que você recebe quando entra no Desinflama."</em></div>
+        <div class="script-line"><strong>Desenvolvimento</strong>Tela do app MFIT: treinos, progressão, como o Lázaro acompanha. Grupo de suporte, ajustes. Screencast + fala do Lázaro.</div>
+        <div class="script-line"><strong>CTA</strong><em>"Tudo isso tá te esperando no link."</em></div>
+      </div>
+      <div class="creative-card">
+        <span class="fmt-badge estatico">🎨 Estático · Wica</span>
+        <h4>Mockup do app na mão</h4>
+        <div class="script-line">Mockup do celular com o app aberto + headline <em>"Seu treino, sua rotina, no seu tempo."</em> Lista curta: treino guiado, acompanhamento, suporte.</div>
+      </div>
+      <div class="creative-card">
+        <span class="fmt-badge carrossel">🎨 Carrossel · Wica</span>
+        <h4>"O que você recebe ao entrar no Desinflama"</h4>
+        <div class="script-line">Um slide por entrega: treinos no app, protocolo anti-inflamatório, suporte do Lázaro, grupo de alunas, ajustes contínuos → fecho com CTA para a página.</div>
+      </div>
+    </div>
+
+    <div class="angle-label">Ângulo · Prova social</div>
+    <div class="creative-row">
+      <div class="creative-card">
+        <span class="fmt-badge video">🎬 Vídeo · gravar</span>
+        <h4>Depoimento guiado de aluna</h4>
+        <div class="script-line"><strong>Gancho (3s)</strong>Aluna: <em>"Eu achava que era só o meu corpo que era assim."</em></div>
+        <div class="script-line"><strong>Desenvolvimento</strong>Estrutura antes → durante → depois: como era a rotina, o que mudou nas primeiras semanas, como está hoje. Gravado de forma espontânea, com roteiro de perguntas.</div>
+        <div class="script-line"><strong>CTA</strong><em>"Se ela conseguiu com a rotina dela, você consegue com a sua."</em></div>
+      </div>
+      <div class="creative-card">
+        <span class="fmt-badge estatico">🎨 Estático · Wica</span>
+        <h4>Print de relato do grupo</h4>
+        <div class="script-line">Print real de mensagem de aluna no grupo (com autorização) + foto do resultado. O print como elemento central dá autenticidade que arte polida não tem.</div>
+      </div>
+      <div class="creative-card">
+        <span class="fmt-badge carrossel">🎨 Carrossel · Wica</span>
+        <h4>"A jornada da [aluna] no Desinflama"</h4>
+        <div class="script-line">Linha do tempo em slides: semana 1 (adaptação), semana 4 (primeiros resultados), mês 3 (transformação) — com fotos e falas reais dela em cada etapa.</div>
+      </div>
+    </div>
+
+    <!-- ============ BOF ============ -->
+    <div class="funnel-head"><span class="funnel-pill">BOF · Conversão</span><h3>Remarketing — visitou a página, iniciou checkout, não comprou</h3></div>
+    <p class="funnel-desc">Objetivo: converter. Oferta clara, quebra de objeções e urgência do mote de verão. CTA direto: assinar agora.</p>
+
+    <div class="angle-label">Ângulo · Dor</div>
+    <div class="creative-row">
+      <div class="creative-card">
+        <span class="fmt-badge video">🎬 Vídeo · gravar</span>
+        <h4>"Quanto tempo você ainda vai adiar?"</h4>
+        <div class="script-line"><strong>Gancho (3s)</strong><em>"Você entrou na página, viu tudo… e fechou. Deixa eu te falar uma coisa."</em></div>
+        <div class="script-line"><strong>Desenvolvimento</strong>Lázaro fala direto com quem quase comprou: o que trava (tempo, medo de não conseguir) e por que esperar só adia o resultado. Tom próximo, sem pressão de varejo.</div>
+        <div class="script-line"><strong>CTA</strong><em>"O verão não espera sua motivação chegar. Começa hoje."</em></div>
+      </div>
+      <div class="creative-card">
+        <span class="fmt-badge estatico">🎨 Estático · Wica</span>
+        <h4>"Dezembro parece longe. Até chegar."</h4>
+        <div class="script-line">Frase do mote em tipografia dominante, fundo escuro, botão de CTA visível: <em>"Começar agora."</em> Simples e direto para remarketing.</div>
+      </div>
+      <div class="creative-card">
+        <span class="fmt-badge carrossel">🎨 Carrossel · Wica</span>
+        <h4>Quebra de objeções</h4>
+        <div class="script-line">Um slide por objeção respondida: <em>"Não tenho tempo"</em> (treinos que cabem na rotina), <em>"Já tentei de tudo"</em> (método ≠ desafio), <em>"E se eu não conseguir?"</em> (acompanhamento + garantia) → fecho com CTA.</div>
+      </div>
+    </div>
+
+    <div class="angle-label">Ângulo · Desejo</div>
+    <div class="creative-row">
+      <div class="creative-card">
+        <span class="fmt-badge video">🎬 Vídeo · gravar</span>
+        <h4>Oferta clara do Lázaro</h4>
+        <div class="script-line"><strong>Gancho (3s)</strong><em>"Sem enrolação: é isso que você leva no Desinflama."</em></div>
+        <div class="script-line"><strong>Desenvolvimento</strong>Lázaro apresenta os planos e tudo que está incluído, traduzindo valor: <em>"menos que um lanche por semana pra ter treino, método e acompanhamento"</em>. Menciona garantia/cancelamento.</div>
+        <div class="script-line"><strong>CTA</strong><em>"Escolhe seu plano no link e começa hoje."</em></div>
+      </div>
+      <div class="creative-card">
+        <span class="fmt-badge estatico">🎨 Estático · Wica</span>
+        <h4>Card de oferta</h4>
+        <div class="script-line">Arte com o plano em destaque (priorizar o trimestral/semestral), o que está incluído em 3 bullets e CTA. Versões A/B com âncora de preço diferente.</div>
+      </div>
+      <div class="creative-card">
+        <span class="fmt-badge carrossel">🎨 Carrossel · Wica</span>
+        <h4>"Escolha seu plano"</h4>
+        <div class="script-line">Slide de abertura com a promessa → um slide por plano (mensal, trimestral, semestral) com benefício de cada um → slide final com garantia e CTA. O semestral apresentado como melhor custo-benefício para chegar no verão.</div>
+      </div>
+    </div>
+
+    <div class="angle-label">Ângulo · Prova social</div>
+    <div class="creative-row">
+      <div class="creative-card">
+        <span class="fmt-badge video">🎬 Vídeo · gravar</span>
+        <h4>Compilação de resultados + convite final</h4>
+        <div class="script-line"><strong>Gancho (3s)</strong>Sequência rápida de antes/depois. <em>"Todas elas começaram exatamente de onde você está agora."</em></div>
+        <div class="script-line"><strong>Desenvolvimento</strong>Montagem de resultados e trechos de relatos, fechando com o Lázaro na câmera fazendo o convite pessoal.</div>
+        <div class="script-line"><strong>CTA</strong><em>"A próxima história pode ser a sua. Link na bio."</em></div>
+      </div>
+      <div class="creative-card">
+        <span class="fmt-badge estatico">🎨 Estático · Wica</span>
+        <h4>"Ela começou há 3 meses. E você?"</h4>
+        <div class="script-line">Antes/depois forte com a pergunta como headline e CTA direto. A pergunta transfere a prova para a decisão de quem vê.</div>
+      </div>
+      <div class="creative-card">
+        <span class="fmt-badge carrossel">🎨 Carrossel · Wica</span>
+        <h4>Mural de resultados</h4>
+        <div class="script-line">Grid de vários antes/depois e prints de relatos em sequência — efeito de volume de prova → slide final: <em>"Vagas abertas. Garanta a sua."</em> + CTA.</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:40px;"><strong>Regras de uso da matriz:</strong> cada célula é um conceito único — nada de variação do mesmo criativo em células diferentes. Subir por etapa: TOF e MOF primeiro para aquecer públicos, BOF entra quando houver volume de remarketing. Acompanhar no dashboard qual combinação funil × ângulo × formato performa melhor e produzir a próxima leva a partir dos vencedores.</div>
+  </div>
+</section>
+
+</div><!-- /tab-roteiros -->
 
 <footer>Lázaro Souto · Método Desinflama · Método que transforma. Resultados que ficam.</footer>
 

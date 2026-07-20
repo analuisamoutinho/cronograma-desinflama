@@ -508,7 +508,182 @@
     color:var(--azul-acinzentado);
   }
 
+  /* ============ TABS ============ */
+  .tabs-nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(0,0,0,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--linha);
+  }
+  .tabs-nav .container{
+    display:flex;
+    gap:6px;
+    overflow-x:auto;
+  }
+  .tab-btn{
+    appearance:none;
+    background:transparent;
+    border:none;
+    border-bottom:2px solid transparent;
+    color:var(--azul-acinzentado);
+    font-family:'Poppins', sans-serif;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:18px 20px 16px;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:color .2s, border-color .2s;
+  }
+  .tab-btn:hover{color:var(--off-white);}
+  .tab-btn.active{
+    color:var(--off-white);
+    border-bottom-color:var(--azul-acinzentado);
+  }
+  .tab-content{display:none;}
+  .tab-content.active{display:block;}
+
+  .updated-pill{
+    display:inline-block;
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--azul-acinzentado);
+    border:1px solid var(--linha);
+    padding:7px 16px;
+    border-radius:999px;
+    margin-bottom:30px;
+  }
+
+  /* ============ STATUS (ABA 2) ============ */
+  .status-summary{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--linha);
+    border:1px solid var(--linha);
+    margin-bottom:44px;
+  }
+  .status-summary div{background:var(--preto); padding:22px 24px;}
+  .status-summary .num{font-size:28px; font-weight:800; display:block;}
+  .status-summary .num.ok{color:#7FC8A9;}
+  .status-summary .num.pend{color:#E8C468;}
+  .status-summary .lab{
+    font-size:11.5px; letter-spacing:0.05em;
+    color:var(--azul-acinzentado); text-transform:uppercase; margin-top:4px;
+  }
+
+  .status-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+    align-items:start;
+  }
+  .status-col{border:1px solid var(--linha);}
+  .status-col-head{
+    padding:18px 24px;
+    border-bottom:1px solid var(--linha);
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+  }
+  .status-col.ok .status-col-head{color:#7FC8A9; background:rgba(127,200,169,0.06);}
+  .status-col.pend .status-col-head{color:#E8C468; background:rgba(232,196,104,0.06);}
+  .status-item{
+    padding:16px 24px;
+    border-bottom:1px solid var(--linha);
+  }
+  .status-item:last-child{border-bottom:none;}
+  .status-item .s-title{
+    font-size:13.8px;
+    font-weight:600;
+    color:var(--off-white);
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+  }
+  .status-item .s-title::before{flex-shrink:0; font-weight:800;}
+  .status-col.ok .s-title::before{content:"✓"; color:#7FC8A9;}
+  .status-col.pend .s-title::before{content:"○"; color:#E8C468;}
+  .status-item .s-note{
+    font-size:12.8px;
+    font-weight:300;
+    color:var(--azul-claro);
+    margin-top:4px;
+    padding-left:22px;
+  }
+  .status-item .s-resp{
+    display:inline-block;
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--azul-acinzentado);
+    border:1px solid var(--linha);
+    border-radius:999px;
+    padding:3px 10px;
+    margin-top:8px;
+    margin-left:22px;
+  }
+
+  /* ============ SOLICITACOES (ABA 3) ============ */
+  .req-card{
+    border:1px solid var(--linha);
+    margin-bottom:20px;
+  }
+  .req-card .req-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    padding:18px 26px;
+    border-bottom:1px solid var(--linha);
+    background:rgba(123,167,188,0.03);
+  }
+  .req-card .req-head h3{font-size:16px;}
+  .req-prio{
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:5px 12px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+  .req-prio.alta{background:var(--azul-acinzentado); color:var(--azul-profundo);}
+  .req-prio.media{border:1px solid var(--azul-acinzentado); color:var(--azul-acinzentado);}
+  .req-prio.futura{border:1px solid var(--linha); color:var(--azul-claro);}
+  .req-card .req-body{padding:22px 26px 26px;}
+  .req-card .req-body p.req-ctx{
+    font-size:13.8px; font-weight:300; color:var(--azul-claro); margin-bottom:16px;
+  }
+  .req-card .req-body p.req-ctx strong{color:var(--off-white); font-weight:600;}
+
+  .cross-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  .cross-card{
+    border:1px solid var(--linha);
+    padding:20px 22px;
+    background:linear-gradient(180deg, rgba(123,167,188,0.04), transparent);
+  }
+  .cross-card h4{font-size:14px; margin-bottom:6px;}
+  .cross-card .cross-tipo{
+    font-size:10.5px; font-weight:700; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--azul-acinzentado); margin-bottom:8px; display:block;
+  }
+  .cross-card p{font-size:13px; font-weight:300; color:var(--azul-claro);}
+
   @media(max-width:820px){
+    .status-summary{grid-template-columns:1fr;}
+    .status-grid{grid-template-columns:1fr;}
+    .cross-grid{grid-template-columns:1fr;}
     .container{padding:0 22px;}
     h1.title{font-size:36px;}
     .hero-stats{grid-template-columns:1fr;}
@@ -542,6 +717,17 @@
     </div>
   </div>
 </header>
+
+<nav class="tabs-nav">
+  <div class="container">
+    <button class="tab-btn active" data-tab="tab-cronograma">Cronograma</button>
+    <button class="tab-btn" data-tab="tab-status">Status · OK &amp; Pendente</button>
+    <button class="tab-btn" data-tab="tab-wica">Solicitações · Studio Wica</button>
+  </div>
+</nav>
+
+<!-- ================= ABA 1 · CRONOGRAMA ================= -->
+<div id="tab-cronograma" class="tab-content active">
 
 <!-- 1. OBJETIVO -->
 <section>
@@ -976,7 +1162,251 @@
   </div>
 </div>
 
+</div><!-- /tab-cronograma -->
+
+<!-- ================= ABA 2 · STATUS ================= -->
+<div id="tab-status" class="tab-content">
+
+<section>
+  <div class="container">
+    <div class="section-head"><span class="idx">S1</span><h2>Panorama prático do projeto</h2></div>
+    <span class="updated-pill">Atualizado em 20 de julho de 2026</span>
+    <p class="section-intro">Visão rápida do que <strong>já está resolvido</strong> e do que <strong>ainda precisa destravar</strong>, com base no andamento real do grupo. Cada pendência tem o responsável e o próximo passo.</p>
+
+    <div class="status-summary">
+      <div><span class="num ok">12</span><span class="lab">itens concluídos</span></div>
+      <div><span class="num pend">9</span><span class="lab">itens pendentes</span></div>
+      <div><span class="num">Fase 3–5</span><span class="lab">momento atual do cronograma</span></div>
+    </div>
+
+    <div class="status-grid">
+
+      <div class="status-col ok">
+        <div class="status-col-head">✓ Já está OK</div>
+        <div class="status-item">
+          <div class="s-title">Cronograma validado pelo time</div>
+          <div class="s-note">Publicado dia 08/07 e aprovado por todos no grupo.</div>
+        </div>
+        <div class="status-item">
+          <div class="s-title">Acessos principais recebidos</div>
+          <div class="s-note">Hotmart, MFIT, Meta (BM e conta de anúncios), Facebook e WordPress da LP — todos logados e validados, incluindo códigos de verificação.</div>
+        </div>
+        <div class="status-item">
+          <div class="s-title">Domínio confirmado</div>
+          <div class="s-note">lazarosouto.com ativo, com usuário próprio criado no WordPress.</div>
+        </div>
+        <div class="status-item">
+          <div class="s-title">Materiais gráficos recebidos</div>
+          <div class="s-note">Drive do Studio Wica com LP, identidade visual e mídia kit.</div>
+        </div>
+        <div class="status-item">
+          <div class="s-title">Banco de conteúdos recebido</div>
+          <div class="s-note">Drive com criativos e conteúdos já produzidos, enviado pela Isa.</div>
+        </div>
+        <div class="status-item">
+          <div class="s-title">Antes e depois confirmados</div>
+          <div class="s-note">Lázaro validou que os cases do Drive são os melhores e estão prontos para uso na LP.</div>
+        </div>
+        <div class="status-item">
+          <div class="s-title">Número novo para a API comprado</div>
+          <div class="s-note">Número adquirido pelo Lázaro, validado pela operadora e enviado (sem vínculo com WhatsApp comum, como combinado).</div>
+        </div>
+        <div class="status-item">
+          <div class="s-title">Conta WhatsApp Business (API) criada</div>
+          <div class="s-note">Número verificado no Meta; conta criada e em análise pela plataforma.</div>
+        </div>
+        <div class="status-item">
+          <div class="s-title">Documentos para verificação da BM</div>
+          <div class="s-note">CNPJ e contrato social da Aliança Consultoria recebidos.</div>
+        </div>
+        <div class="status-item">
+          <div class="s-title">Fluxo de vendas mapeado</div>
+          <div class="s-note">Hoje as vendas rodam pela MFIT; decisão tomada de migrar o pagamento para a Hotmart (dados melhores para análise).</div>
+        </div>
+        <div class="status-item">
+          <div class="s-title">Base de clientes mapeada</div>
+          <div class="s-note">Dados de alunos ativos e antigos estão na MFIT + grupos de WhatsApp; Ana adicionada ao grupo de alunos.</div>
+        </div>
+        <div class="status-item">
+          <div class="s-title">Reunião de alinhamento marcada</div>
+          <div class="s-note">Terça-feira, 21/07, às 15h, para bater os próximos passos de cada um.</div>
+        </div>
+      </div>
+
+      <div class="status-col pend">
+        <div class="status-col-head">○ Pendente</div>
+        <div class="status-item">
+          <div class="s-title">Acesso à hospedagem (Hostinger)</div>
+          <div class="s-note">Ana cria a conta na Hostinger e envia o e-mail; Lázaro compartilha o acesso da hospedagem.</div>
+          <span class="s-resp">Ana + Lázaro</span>
+        </div>
+        <div class="status-item">
+          <div class="s-title">Verificação da BM no Meta</div>
+          <div class="s-note">Falta telefone/e-mail vinculado à empresa. A contadora vai atualizar o telefone na Receita Federal para o número da API.</div>
+          <span class="s-resp">Lázaro + contadora</span>
+        </div>
+        <div class="status-item">
+          <div class="s-title">E-mail no domínio da Aliança Consultoria</div>
+          <div class="s-note">Necessário para a verificação da BM; contadora providenciando os dados para criação.</div>
+          <span class="s-resp">Lázaro + contadora</span>
+        </div>
+        <div class="status-item">
+          <div class="s-title">Aprovação final da API do WhatsApp</div>
+          <div class="s-note">Conta criada e em análise pelo Meta; acompanhar liberação para configurar os fluxos.</div>
+          <span class="s-resp">Ana</span>
+        </div>
+        <div class="status-item">
+          <div class="s-title">Migração do pagamento MFIT → Hotmart</div>
+          <div class="s-note">Conferir relatórios da MFIT e configurar o produto e os planos na Hotmart.</div>
+          <span class="s-resp">Ana</span>
+        </div>
+        <div class="status-item">
+          <div class="s-title">Ajustes da Landing Page</div>
+          <div class="s-note">Adaptar a LP do Studio Wica (troca de influenciadora, vídeo na header, antes/depois com nome) e enviar o que precisa de alteração.</div>
+          <span class="s-resp">Ana + Studio Wica</span>
+        </div>
+        <div class="status-item">
+          <div class="s-title">Roteiro do vídeo da header</div>
+          <div class="s-note">Se o vídeo na header for validado, roteirizar a fala do Lázaro sobre o Desinflama.</div>
+          <span class="s-resp">Studio Wica + Ana</span>
+        </div>
+        <div class="status-item">
+          <div class="s-title">Contrato entre as partes</div>
+          <div class="s-note">Thales vai rodar a minuta para todos validarem e assinarem entre as fases 2 e 3.</div>
+          <span class="s-resp">Thales</span>
+        </div>
+        <div class="status-item">
+          <div class="s-title">E-mails para o invite da reunião</div>
+          <div class="s-note">Enviar os e-mails no grupo para o convite de agenda — até agora só o Thales mandou.</div>
+          <span class="s-resp">Bhabi, Lázaro e Isa</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</div><!-- /tab-status -->
+
+<!-- ================= ABA 3 · SOLICITAÇÕES STUDIO WICA ================= -->
+<div id="tab-wica" class="tab-content">
+
+<section>
+  <div class="container">
+    <div class="section-head"><span class="idx">W1</span><h2>Solicitações para o Studio Wica</h2></div>
+    <span class="updated-pill">Atualizado em 20 de julho de 2026</span>
+    <p class="section-intro">Isa e Bhabi, organizamos aqui tudo que vamos precisar do Studio Wica, por prioridade. As de <strong>prioridade alta</strong> destravam a landing page e o início de tráfego em agosto; as demais entram na sequência.</p>
+
+    <div class="req-card">
+      <div class="req-head"><h3>1 · Ajustes na Landing Page</h3><span class="req-prio alta">Prioridade alta</span></div>
+      <div class="req-body">
+        <p class="req-ctx">A partir da LP já desenvolvida, vamos precisar dos ajustes que alinhamos:</p>
+        <ul class="check">
+          <li>Substituir a Vitória Lenoir por outra pessoa, conforme pedido do Lázaro</li>
+          <li>Header com vídeo do Lázaro falando sobre o Desinflama (sem travar a rolagem da página)</li>
+          <li>Logo abaixo do vídeo, os antes e depois mais relevantes, com o nome de cada aluna para dar credibilidade</li>
+          <li>Ajustes de copy e estrutura que enviaremos junto com a revisão completa da página</li>
+        </ul>
+        <div class="callout"><strong>Próximo passo:</strong> a Ana envia a revisão completa da LP com tudo que precisa ser alterado, e o Studio Wica solicita ao Lázaro os materiais que faltarem.</div>
+      </div>
+    </div>
+
+    <div class="req-card">
+      <div class="req-head"><h3>2 · Roteiro do vídeo da header</h3><span class="req-prio alta">Prioridade alta</span></div>
+      <div class="req-body">
+        <p class="req-ctx">Se o vídeo na header for validado, precisamos <strong>roteirizar juntos</strong> a fala do Lázaro: apresentação rápida do método, para quem é e chamada para conhecer os planos. Vídeo curto, natural, com a cara do conteúdo orgânico dele.</p>
+      </div>
+    </div>
+
+    <div class="req-card">
+      <div class="req-head"><h3>3 · Criativos para o início de tráfego</h3><span class="req-prio alta">Prioridade alta</span></div>
+      <div class="req-body">
+        <p class="req-ctx">Além do banco de conteúdos já enviado, vamos precisar de uma rotina mínima de materiais para as campanhas de agosto:</p>
+        <ul class="check">
+          <li>3 a 4 vídeos comerciais por semana com CTA claro para o Desinflama</li>
+          <li>Conteúdos de treino e rotina (execução, bastidores, disciplina)</li>
+          <li>Conteúdos de prova: antes e depois, relatos e prints de alunas</li>
+          <li>Adaptações dos criativos para o mote de verão ("O corpo do verão começa no frio")</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="req-card">
+      <div class="req-head"><h3>4 · Materiais de apoio</h3><span class="req-prio media">Prioridade média</span></div>
+      <div class="req-body">
+        <ul class="check">
+          <li>Complementar o banco de antes/depois caso alguma foto precise ser refeita em formato melhor</li>
+          <li>Artes para a página de obrigado, e-mails e mensagens de WhatsApp (boas-vindas e recuperação)</li>
+          <li>Identidade aplicada ao dashboard e materiais internos, se necessário</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-top:60px;"><span class="idx">W2</span><h2>Sugestões de cross-sell e produtos complementares</h2></div>
+    <p class="section-intro">Ideias para avaliarmos em conjunto <strong>depois de validar a operação principal</strong>. Nenhuma entra agora — mas já deixamos mapeado o que o Studio Wica poderia produzir de material para cada uma.</p>
+
+    <div class="cross-grid">
+      <div class="cross-card">
+        <span class="cross-tipo">Order bump · checkout</span>
+        <h4>Guia anti-inflamatório de receitas</h4>
+        <p>E-book com receitas e lista de compras para desinchar, oferecido por um valor pequeno no checkout. Material: capa, diagramação e mockup.</p>
+      </div>
+      <div class="cross-card">
+        <span class="cross-tipo">Upsell · pós-compra</span>
+        <h4>Consultoria individual com o Lázaro</h4>
+        <p>Acompanhamento mais próximo para quem quer resultado acelerado. Material: página de oferta e criativos de upgrade.</p>
+      </div>
+      <div class="cross-card">
+        <span class="cross-tipo">Produto complementar</span>
+        <h4>Protocolo "Desincha 21 dias"</h4>
+        <p>Desafio de entrada com treinos curtos e hábitos anti-inflamatórios, porta de entrada para o plano completo. Material: identidade do desafio e kit de divulgação.</p>
+      </div>
+      <div class="cross-card">
+        <span class="cross-tipo">Campanha sazonal</span>
+        <h4>Kit Projeto Verão</h4>
+        <p>Combo do mote de verão: plano trimestral/semestral + bônus exclusivos para chegar em dezembro transformada. Material: campanha completa com criativos e LP de oferta.</p>
+      </div>
+      <div class="cross-card">
+        <span class="cross-tipo">Retenção · comunidade</span>
+        <h4>Desafio de constância entre alunas</h4>
+        <p>Dinâmica no grupo com ranking e premiação simbólica para aumentar engajamento e retenção. Material: artes do desafio e templates de stories.</p>
+      </div>
+      <div class="cross-card">
+        <span class="cross-tipo">2ª etapa · audiência</span>
+        <h4>Projeto embaixadoras</h4>
+        <p>Influenciadoras passando pelo método com antes/depois documentado, gerando prova social e novas audiências. Material: mídia kit e roteiro de acompanhamento.</p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:30px;"><strong>Como vamos priorizar:</strong> primeiro a operação principal redonda (LP, checkout, trackeamento e tráfego). Depois, escolhemos juntos 1 ou 2 dessas frentes com base nos dados do primeiro mês — plano mais vendido, taxa de recompra e engajamento da base.</div>
+  </div>
+</section>
+
+</div><!-- /tab-wica -->
+
 <footer>Lázaro Souto · Método Desinflama · Método que transforma. Resultados que ficam.</footer>
+
+<script>
+  const buttons = document.querySelectorAll('.tab-btn');
+  const tabs = document.querySelectorAll('.tab-content');
+
+  function activate(id){
+    buttons.forEach(b => b.classList.toggle('active', b.dataset.tab === id));
+    tabs.forEach(t => t.classList.toggle('active', t.id === id));
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      activate(btn.dataset.tab);
+      history.replaceState(null, '', '#' + btn.dataset.tab);
+      window.scrollTo({top: document.querySelector('.tabs-nav').offsetTop, behavior: 'smooth'});
+    });
+  });
+
+  if(location.hash && document.getElementById(location.hash.slice(1))){
+    activate(location.hash.slice(1));
+  }
+</script>
 
 </body>
 </html>

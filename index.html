@@ -1050,6 +1050,21 @@
   .legend-dot{width:10px; height:10px; border-radius:3px; flex-shrink:0;}
   .legend-item strong{color:var(--off-white); margin-left:auto; font-weight:700; font-size:12.5px;}
 
+  /* split bar (faturamento hotmart x anúncios) */
+  .split-bar{display:flex; height:44px; border-radius:6px; overflow:hidden; margin-bottom:14px;}
+  .split-bar .seg{
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-size:12px; font-weight:800; color:var(--azul-profundo); line-height:1.3;
+  }
+  .split-bar .seg small{font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; opacity:0.8;}
+  .split-bar .seg.ads{background:var(--azul-acinzentado);}
+  .split-bar .seg.organic{background:var(--azul-claro);}
+  .split-legend{display:flex; gap:22px; flex-wrap:wrap; margin-bottom:10px;}
+  .split-legend-item{display:flex; align-items:center; gap:8px; font-size:12px; color:var(--azul-claro);}
+  .split-legend-item .sl-dot{width:10px; height:10px; border-radius:3px; flex-shrink:0;}
+  .split-legend-item strong{color:var(--off-white); font-weight:700; margin-left:4px;}
+  .dash-split-note{font-size:11.5px; color:var(--azul-acinzentado); font-weight:300; margin-top:2px;}
+
   /* vertical bar chart */
   .vbar-chart{display:flex; align-items:flex-end; gap:22px; height:150px; padding-top:6px;}
   .vbar-col{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%;}
@@ -2456,6 +2471,19 @@ Adicione o <strong>Desinflama Express</strong> por apenas R$27 e tenha treinos r
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="dash-panel" style="margin-top:18px;">
+      <div class="dash-panel-head"><h4>Faturamento: direto na Hotmart x vindo de anúncios</h4><span class="dp-note">Exemplo</span></div>
+      <div class="split-bar">
+        <div class="seg ads" style="width:48%">R$ 11.952<small>Anúncios</small></div>
+        <div class="seg organic" style="width:52%">R$ 12.948<small>Direto Hotmart</small></div>
+      </div>
+      <div class="split-legend">
+        <div class="split-legend-item"><span class="sl-dot" style="background:var(--azul-acinzentado)"></span>Vendas por clique em anúncio (UTM/Pixel)<strong>48%</strong></div>
+        <div class="split-legend-item"><span class="sl-dot" style="background:var(--azul-claro)"></span>Vendas direto na Hotmart (orgânico, WhatsApp, link na bio)<strong>52%</strong></div>
+      </div>
+      <p class="dash-split-note">Esse recorte depende de UTM e Pixel bem configurados na Fase 5 do cronograma. Sem isso, a Hotmart credita a venda como "direta" mesmo quando ela veio de um anúncio.</p>
     </div>
 
     <div class="dash-panel" style="margin-top:18px;">

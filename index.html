@@ -773,6 +773,85 @@
   .wica-split h4 span{font-size:12px; font-weight:400; color:var(--azul-acinzentado);}
   .wica-split p{font-size:13.3px; font-weight:300; color:var(--azul-claro);}
 
+  /* ============ ORDER BUMPS (ABA 5) ============ */
+  .rank-table-wrap{overflow-x:auto; margin-top:10px;}
+  table.rank-table{width:100%; border-collapse:collapse; min-width:640px;}
+  .rank-table th, .rank-table td{padding:13px 16px; text-align:left; border-bottom:1px solid var(--linha); vertical-align:top;}
+  .rank-table th{
+    font-size:10.5px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--azul-acinzentado);
+  }
+  .rank-table td{font-size:13.5px; color:var(--azul-claro); font-weight:300;}
+  .rank-table td strong{color:var(--off-white); font-weight:600;}
+  .rank-table td.pos{font-size:16px; text-align:center;}
+  .rank-table td.stars{color:var(--azul-acinzentado); white-space:nowrap;}
+
+  .ob-card{border:1px solid var(--linha); margin-bottom:22px;}
+  .ob-head{
+    display:flex; align-items:center; justify-content:space-between; gap:14px;
+    padding:20px 26px; border-bottom:1px solid var(--linha);
+    background:rgba(123,167,188,0.03);
+  }
+  .ob-head h3{font-size:17px;}
+  .ob-rank{
+    font-size:11px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--azul-profundo); background:var(--azul-acinzentado);
+    padding:6px 14px; border-radius:999px; white-space:nowrap;
+  }
+  .ob-body{padding:24px 26px 28px;}
+  .ob-tagline{font-size:14px; font-style:italic; color:var(--azul-claro); margin-bottom:14px;}
+  .ob-meta{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:16px;}
+  .ob-meta span{
+    font-size:11.5px; font-weight:700; letter-spacing:0.04em;
+    border:1px solid var(--linha); border-radius:999px; padding:6px 14px; color:var(--off-white);
+  }
+  .ob-copy{
+    margin-top:16px; padding:18px 22px;
+    background:var(--azul-profundo); border-left:2px solid var(--azul-acinzentado);
+    font-size:13.3px; color:var(--off-white); font-weight:300; white-space:pre-line;
+  }
+  .ob-note{
+    margin-top:14px; font-size:13.3px; color:var(--azul-claro); font-weight:300;
+  }
+  .ob-note strong{color:var(--off-white); font-weight:600;}
+
+  .test-flow{
+    display:flex; flex-wrap:wrap; align-items:center; gap:14px;
+    margin:22px 0; justify-content:center;
+  }
+  .test-flow .test-step{
+    border:1px solid var(--linha); padding:16px 22px; text-align:center;
+    font-size:13px; color:var(--off-white); font-weight:600; min-width:200px;
+  }
+  .test-flow .test-step span{
+    display:block; font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--azul-acinzentado); font-weight:800; margin-bottom:6px;
+  }
+  .test-flow .test-arrow{color:var(--azul-acinzentado); font-size:16px;}
+
+  .math-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px;}
+  .math-card{border:1px solid var(--linha); padding:20px 22px; background:linear-gradient(180deg, rgba(123,167,188,0.04), transparent);}
+  .math-card .math-label{font-size:11px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; color:var(--azul-acinzentado); margin-bottom:8px;}
+  .math-card .math-formula{font-size:14px; color:var(--off-white); font-weight:600; margin-bottom:6px;}
+  .math-card .math-result{font-size:12.5px; color:var(--azul-claro); font-weight:300;}
+
+  .final-offer{border:1px solid var(--linha); margin-top:10px;}
+  .final-offer .fo-row{
+    padding:22px 26px; border-bottom:1px solid var(--linha);
+    display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+  }
+  .final-offer .fo-row:last-child{border-bottom:none;}
+  .final-offer .fo-label{font-size:11px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--azul-acinzentado);}
+  .final-offer .fo-name{font-size:16px; font-weight:700; color:var(--off-white); margin-top:4px;}
+  .final-offer .fo-note{font-size:13px; color:var(--azul-claro); font-weight:300; margin-top:4px; font-style:italic;}
+  .final-offer .fo-price{font-size:18px; font-weight:800; color:var(--azul-acinzentado);}
+
+  @media(max-width:820px){
+    .math-grid{grid-template-columns:1fr;}
+    .ob-head{flex-direction:column; align-items:flex-start;}
+    .final-offer .fo-row{flex-direction:column; align-items:flex-start;}
+  }
+
   @media(max-width:820px){
     .status-summary{grid-template-columns:1fr;}
     .status-grid{grid-template-columns:1fr;}
@@ -820,6 +899,7 @@
     <button class="tab-btn" data-tab="tab-status">Status · OK &amp; Pendente</button>
     <button class="tab-btn" data-tab="tab-wica">Solicitações · Studio Wica</button>
     <button class="tab-btn" data-tab="tab-roteiros">Roteiros · Criativos 3-3-3</button>
+    <button class="tab-btn" data-tab="tab-orderbumps">Order Bumps</button>
   </div>
 </nav>
 
@@ -1723,6 +1803,223 @@
 </section>
 
 </div><!-- /tab-roteiros -->
+
+<!-- ================= ABA 5 · ORDER BUMPS ================= -->
+<div id="tab-orderbumps" class="tab-content">
+
+<section>
+  <div class="container">
+    <div class="section-head"><span class="idx">OB1</span><h2>Ranking final dos melhores Order Bumps para o Desinflama</h2></div>
+    <p class="section-intro">Sim. Juntando as duas linhas de raciocínio, eu refinaria bastante a seleção. Algumas ideias são boas como produto, mas <strong>não necessariamente são as melhores para order bump</strong>. Para bump, eu priorizaria complementaridade imediata, desejo já existente e consumo simples.</p>
+
+    <div class="rank-table-wrap">
+      <table class="rank-table">
+        <thead>
+          <tr><th>#</th><th>Produto</th><th>Promessa principal</th><th>Preço teste</th><th>Potencial de take rate</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="pos">🥇</td><td><strong>Desinflama na Vida Real</strong></td><td>Não perder o progresso quando sair da rotina</td><td><strong>R$27</strong></td><td class="stars">⭐⭐⭐⭐⭐</td></tr>
+          <tr><td class="pos">🥈</td><td><strong>SOS Desinflama</strong></td><td>Saber exatamente o que fazer quando sair do plano</td><td><strong>R$17–19,90</strong></td><td class="stars">⭐⭐⭐⭐⭐</td></tr>
+          <tr><td class="pos">🥉</td><td><strong>30 Dias de Refeições Desinflama</strong></td><td>Não precisar pensar no que comer</td><td><strong>R$27</strong></td><td class="stars">⭐⭐⭐⭐⭐</td></tr>
+          <tr><td class="pos">4</td><td><strong>Desafio 21 Dias Seca-Pochete</strong></td><td>Foco extra na região abdominal</td><td><strong>R$37</strong></td><td class="stars">⭐⭐⭐⭐</td></tr>
+          <tr><td class="pos">5</td><td><strong>Desinflama Express</strong></td><td>Treinar mesmo nos dias sem tempo</td><td><strong>R$27</strong></td><td class="stars">⭐⭐⭐⭐</td></tr>
+          <tr><td class="pos">6</td><td><strong>Cardápio 15 Minutos</strong></td><td>Refeições rápidas para rotina corrida</td><td><strong>R$24,90</strong></td><td class="stars">⭐⭐⭐⭐</td></tr>
+          <tr><td class="pos">7</td><td><strong>Guia de Compras Desinflama</strong></td><td>Facilitar a execução da alimentação</td><td><strong>R$17</strong></td><td class="stars">⭐⭐⭐⭐</td></tr>
+          <tr><td class="pos">8</td><td><strong>Shots &amp; Chás</strong></td><td>Criar rituais de alimentação/bebidas</td><td><strong>R$17–27</strong></td><td class="stars">⭐⭐⭐</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout" style="margin-top:26px;">
+      <strong>Eu faria uma mudança importante na ideia dos shots:</strong> não usaria a promessa "potencializar a desinflamação do organismo" ou "desinchar logo nos primeiros 7 dias". Além de ser uma promessa mais arriscada, ela cria uma relação meio artificial entre o bump e o método principal. O consumidor acabou de comprar Desinflama. O que ele quer é conseguir executar o método. Por isso, eu colocaria <strong>praticidade e aderência acima de "hacks"</strong>.
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="container">
+    <div class="section-head"><span class="idx">OB2</span><h2>Perfil de cada order bump</h2></div>
+    <p class="section-intro">Detalhamento de conceito, oferta e copy sugerida para cada posição do ranking.</p>
+
+    <!-- 1 -->
+    <div class="ob-card">
+      <div class="ob-head"><h3>🥇 1 · Desinflama na Vida Real</h3><span class="ob-rank">Primeiro teste</span></div>
+      <div class="ob-body">
+        <p class="ob-tagline">"O guia para continuar evoluindo mesmo quando você não consegue seguir o plano 100%."</p>
+        <p class="ob-note">Ele resolve situações como pizza, hambúrguer, churrasco, restaurante, iFood, viagem, festa, aniversário, evento social, dia corrido e dia sem treino. E principalmente: <strong>"Comi errado. E agora?"</strong> Essa última é extremamente importante, porque você está vendendo uma transformação de 40 dias e a pessoa inevitavelmente vai sair do plano em algum momento. O produto vira uma espécie de <strong>seguro contra desistência</strong>.</p>
+        <div class="ob-meta"><span>Oferta: de R$67 por R$27</span></div>
+        <div class="ob-copy">🛡️ <strong>SIM! Quero adicionar o Desinflama na Vida Real por apenas R$27</strong>
+
+Aprenda o que fazer quando aparecer uma pizza, churrasco, viagem, festa ou aquele dia corrido em que você não consegue seguir o plano.
+
+<strong>Não deixe uma refeição fora da rotina virar uma semana inteira perdida.</strong></div>
+        <p class="ob-note">Essa última frase eu gosto MUITO.</p>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="ob-card">
+      <div class="ob-head"><h3>🥈 2 · SOS Desinflama</h3><span class="ob-rank">Versão mais impulsiva</span></div>
+      <div class="ob-body">
+        <p class="ob-tagline">"O manual para saber o que fazer quando você sair da rotina."</p>
+        <p class="ob-note">A estrutura pode ser extremamente simples: <strong>"Se aconteceu isso → faça isso."</strong></p>
+        <ul class="plain">
+          <li><strong style="color:var(--off-white); font-weight:600;">Exagerei na comida →</strong> o que fazer nas próximas refeições</li>
+          <li><strong style="color:var(--off-white); font-weight:600;">Não treinei →</strong> como reorganizar</li>
+          <li><strong style="color:var(--off-white); font-weight:600;">Vou sair para jantar →</strong> como escolher</li>
+          <li><strong style="color:var(--off-white); font-weight:600;">Tenho uma festa →</strong> estratégia antes, durante e depois</li>
+          <li><strong style="color:var(--off-white); font-weight:600;">Viajei →</strong> como manter o mínimo possível</li>
+          <li><strong style="color:var(--off-white); font-weight:600;">Perdi vários dias →</strong> como voltar</li>
+          <li><strong style="color:var(--off-white); font-weight:600;">Estou com muita vontade de comer →</strong> estratégias práticas</li>
+        </ul>
+        <div class="ob-meta"><span>Preço: R$19,90</span></div>
+        <div class="ob-copy">🛡️ <strong>SOS DESINFLAMA por apenas R$19,90</strong>
+
+Um guia rápido para saber exatamente o que fazer quando você sair da dieta, perder um treino, exagerar no fim de semana ou tiver um evento.
+
+<strong>Não transforme um deslize em desistência.</strong></div>
+        <p class="ob-note">É provavelmente o <strong>bump mais fácil de vender por impulso</strong>.</p>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="ob-card">
+      <div class="ob-head"><h3>🥉 3 · 30 Dias de Refeições Desinflama</h3><span class="ob-rank">R$27</span></div>
+      <div class="ob-body">
+        <p class="ob-note">Aqui eu mudaria o conceito original de "cardápio". A grande promessa seria: <strong>"Você não precisa pensar no que comer pelos próximos 30 dias."</strong></p>
+        <p class="ob-note">30 dias organizados com café da manhã, almoço, jantar, lanches, substituições, lista de compras e opções rápidas. O diferencial não é "mais receitas". É <strong>tirar decisões da cabeça da pessoa</strong>.</p>
+        <div class="ob-meta"><span>Preço: R$27</span></div>
+        <div class="ob-copy">⏱️ <strong>Quero facilitar minha alimentação!</strong>
+
+Adicione o <strong>30 Dias de Refeições Desinflama</strong> por apenas R$27 e tenha combinações prontas para os próximos 30 dias, com lista de compras e substituições.
+
+<strong>Você só precisa escolher e seguir.</strong></div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="ob-card">
+      <div class="ob-head"><h3>4 · Desafio 21 Dias Seca-Pochete</h3><span class="ob-rank">R$37</span></div>
+      <div class="ob-body">
+        <p class="ob-note">Eu manteria essa ideia, mas com uma ressalva: <strong>não prometeria "queimar gordura abdominal" especificamente</strong>, porque não existe redução localizada de gordura por exercício. Eu transformaria em uma promessa estética mais defensável.</p>
+        <p class="ob-tagline">Desafio 21 Dias: Barriga Mais Firme</p>
+        <p class="ob-note">Treinos de 5–10 minutos para core, abdômen, estabilidade, postura e fortalecimento. Posicionaria como <strong>complemento</strong>, não como substituto do Desinflama.</p>
+        <div class="ob-meta"><span>Preço: R$37</span></div>
+        <div class="ob-copy">🔥 <strong>Quero dar um foco extra à barriga!</strong>
+
+Adicione o <strong>Desafio 21 Dias: Barriga Mais Firme</strong> e faça treinos extras de apenas 5–10 minutos para fortalecer o core e complementar seu Desinflama.
+
+<strong>21 dias. Poucos minutos por dia.</strong></div>
+        <p class="ob-note">Aqui o apelo visual pode ser muito forte.</p>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="ob-card">
+      <div class="ob-head"><h3>5 · Desinflama Express</h3><span class="ob-rank">R$27</span></div>
+      <div class="ob-body">
+        <p class="ob-note">Outra excelente opção porque resolve uma objeção extremamente concreta: <strong>"Hoje eu não tenho tempo."</strong></p>
+        <p class="ob-note">Biblioteca de treinos de 5, 10, 15 e 20 minutos, para casa, viagem, dias corridos, sem equipamento.</p>
+        <div class="ob-meta"><span>Preço: R$27</span></div>
+        <div class="ob-copy">⏱️ <strong>Não deixe a falta de tempo quebrar sua sequência</strong>
+
+Adicione o <strong>Desinflama Express</strong> por apenas R$27 e tenha treinos rápidos de 5, 10, 15 e 20 minutos para aqueles dias em que você não consegue fazer o treino completo.</div>
+        <p class="ob-note">Esse tem uma vantagem enorme: <strong>é diretamente conectado ao produto principal.</strong></p>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="ob-card">
+      <div class="ob-head"><h3>6 · Cardápio 15 Minutos</h3><span class="ob-rank">R$24,90</span></div>
+      <div class="ob-body">
+        <p class="ob-note">Eu manteria como uma alternativa ao produto de 30 dias.</p>
+        <p class="ob-tagline">"Coma melhor mesmo sem tempo para cozinhar."</p>
+        <p class="ob-note">Inclui receitas rápidas, refeições de até 15 minutos, ingredientes simples, opções para marmita, opções de emergência e lista de compras.</p>
+        <div class="ob-meta"><span>Preço: R$24,90</span></div>
+        <p class="ob-note">É bom, mas eu considero o <strong>30 Dias de Refeições</strong> mais forte porque entrega uma transformação maior.</p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="ob-card">
+      <div class="ob-head"><h3>7 · Guia de Compras Desinflama</h3><span class="ob-rank">R$17</span></div>
+      <div class="ob-body">
+        <p class="ob-note">Esse é o mais "utilitário": <strong>Lista de Compras Desinflama</strong>. A pessoa abre no celular e vai ao supermercado.</p>
+        <div class="ob-meta">
+          <span>🥩 Proteínas</span><span>🥦 Vegetais</span><span>🍎 Frutas</span><span>🥑 Gorduras</span>
+          <span>🍚 Carboidratos</span><span>🥛 Alternativas</span><span>🍫 Doces/vontade de doce</span><span>🚨 Alimentos coringa</span>
+        </div>
+        <p class="ob-note">Mais: <strong>"O que comprar quando..."</strong> e <strong>"O que substituir por..."</strong></p>
+        <div class="ob-meta"><span>Preço: R$17</span></div>
+        <p class="ob-note">Excelente como bump barato, mas provavelmente menos desejável que os três primeiros.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head"><span class="idx">OB3</span><h2>E aqui está o que eu faria de verdade</h2></div>
+    <p class="section-intro">Eu <strong>não colocaria 5 bumps simultaneamente</strong>. Faria testes sequenciais.</p>
+
+    <div class="test-flow">
+      <div class="test-step"><span>Teste A</span>Desinflama na Vida Real — R$27</div>
+      <div class="test-arrow">→</div>
+      <div class="test-step"><span>Teste B</span>SOS Desinflama — R$19,90</div>
+      <div class="test-arrow">→</div>
+      <div class="test-step"><span>Teste C</span>30 Dias de Refeições — R$27</div>
+    </div>
+
+    <p class="section-intro" style="margin-bottom:0;">E compararia: <strong>Take Rate + Receita por comprador + impacto no reembolso.</strong> Porque pode acontecer de:</p>
+
+    <div class="math-grid">
+      <div class="math-card">
+        <div class="math-label">Bump A</div>
+        <div class="math-formula">35% de aceite × R$27</div>
+        <div class="math-result">= <strong style="color:var(--off-white);">R$9,45</strong> por comprador</div>
+      </div>
+      <div class="math-card">
+        <div class="math-label">Bump B</div>
+        <div class="math-formula">45% de aceite × R$19,90</div>
+        <div class="math-result">= <strong style="color:var(--off-white);">R$8,95</strong> por comprador</div>
+      </div>
+    </div>
+    <p class="section-intro" style="margin-top:16px; margin-bottom:0;">Nesse caso, o A é melhor para o negócio mesmo convertendo menos.</p>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="container">
+    <div class="section-head"><span class="idx">OB4</span><h2>Minha escolha final</h2></div>
+    <p class="section-intro">Se eu estivesse construindo esse checkout hoje, ficaria assim:</p>
+
+    <div class="final-offer">
+      <div class="fo-row">
+        <div><div class="fo-label">Oferta principal</div><div class="fo-name">DESINFLAMA</div></div>
+      </div>
+      <div class="fo-row">
+        <div>
+          <div class="fo-label">Order bump</div>
+          <div class="fo-name">🛡️ Desinflama na Vida Real</div>
+          <div class="fo-note">"Não deixe uma refeição fora da rotina virar uma semana inteira perdida."</div>
+        </div>
+        <div class="fo-price">R$27</div>
+      </div>
+      <div class="fo-row">
+        <div><div class="fo-label">Upsell</div><div class="fo-name">Produto de acompanhamento / continuidade / transformação</div><div class="fo-note">Não outro PDF.</div></div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:30px;">
+      E eu faria uma segunda versão do bump <strong>sem sequer mencionar "desinflamatório", "chá", "shot", "metabolismo" ou qualquer mecanismo</strong>. Porque a pessoa já comprou o <em>porquê</em>. Agora o bump precisa vender o <strong>"como eu vou conseguir fazer isso funcionar na minha vida?"</strong>
+    </div>
+
+    <p class="section-intro" style="margin-top:24px; margin-bottom:0;">Para mim, essa é a combinação mais forte de <strong>relevância + impulso + complementaridade + baixo esforço de consumo</strong>, e é onde eu apostaria para buscar um take rate acima da média.</p>
+  </div>
+</section>
+
+</div><!-- /tab-orderbumps -->
 
 <footer>Lázaro Souto · Método Desinflama · Método que transforma. Resultados que ficam.</footer>
 

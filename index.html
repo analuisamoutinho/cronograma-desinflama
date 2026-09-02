@@ -965,18 +965,18 @@
     .ref-form-grid{grid-template-columns:1fr;}
   }
 
-  /* ============ DASHBOARD · PROTÓTIPO (ABA 7) ============ */
+  /* ============ DASHBOARD · PROTÓTIPO VISUAL (ABA 7) ============ */
   .dash-badge{
     display:inline-flex; align-items:center; gap:8px;
     font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
     color:#E8C468; background:rgba(232,196,104,0.1); border:1px solid rgba(232,196,104,0.35);
-    padding:8px 16px; border-radius:999px; margin-bottom:24px;
+    padding:8px 16px; border-radius:999px; margin-bottom:22px;
   }
   .dash-badge::before{content:"●"; font-size:8px;}
 
   .filter-bar{
     display:flex; flex-wrap:wrap; gap:10px;
-    border:1px solid var(--linha); padding:16px 20px; margin-bottom:36px;
+    border:1px solid var(--linha); padding:14px 18px; margin-bottom:32px;
     background:rgba(123,167,188,0.03);
   }
   .filter-bar .f-chip{
@@ -987,61 +987,118 @@
   .filter-bar .f-chip span{color:var(--azul-acinzentado); font-weight:400;}
   .filter-bar .f-chip::after{content:"▾"; font-size:9px; color:var(--azul-acinzentado);}
 
-  .kpi-grid{
-    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
-    background:var(--linha); border:1px solid var(--linha); margin-bottom:44px;
-  }
-  .kpi-card{background:var(--preto); padding:24px 26px;}
-  .kpi-card .kpi-lab{
-    font-size:11px; letter-spacing:0.06em; text-transform:uppercase;
-    color:var(--azul-acinzentado); margin-bottom:10px;
-  }
-  .kpi-card .kpi-val{font-size:26px; font-weight:800; color:var(--off-white); display:block;}
-  .kpi-card .kpi-delta{font-size:11.5px; font-weight:600; margin-top:8px; display:inline-block;}
-  .kpi-card .kpi-delta.up{color:#7FC8A9;}
-  .kpi-card .kpi-delta.down{color:#E08A8A;}
-  .kpi-card .kpi-delta.flat{color:var(--azul-acinzentado);}
-
-  .dash-panel{border:1px solid var(--linha); padding:26px 28px; margin-bottom:24px;}
+  .dash-panel{border:1px solid var(--linha); padding:24px 26px;}
   .dash-panel-head{
     display:flex; align-items:baseline; justify-content:space-between; gap:14px;
-    margin-bottom:22px; flex-wrap:wrap;
+    margin-bottom:20px; flex-wrap:wrap;
   }
-  .dash-panel-head h4{font-size:15px;}
-  .dash-panel-head .dp-note{font-size:11.5px; color:var(--azul-acinzentado); font-weight:600; text-transform:uppercase; letter-spacing:0.04em;}
+  .dash-panel-head h4{font-size:13.5px; letter-spacing:0.04em; text-transform:uppercase; color:var(--azul-claro);}
+  .dash-panel-head .dp-note{font-size:10px; color:var(--azul-acinzentado); font-weight:600; text-transform:uppercase; letter-spacing:0.04em;}
 
-  .bar-list{display:flex; flex-direction:column; gap:14px;}
-  .bar-row .bar-top{display:flex; justify-content:space-between; margin-bottom:6px; font-size:13px;}
-  .bar-row .bar-top .bar-name{color:var(--off-white); font-weight:600;}
-  .bar-row .bar-top .bar-val{color:var(--azul-claro); font-weight:300;}
-  .bar-track{background:rgba(123,167,188,0.1); height:8px; border-radius:999px; overflow:hidden;}
-  .bar-fill{background:var(--azul-acinzentado); height:100%; border-radius:999px;}
+  .dash-grid-2{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .dash-grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
 
-  .dash-grid-2{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
-
-  .funnel-mini{display:flex; flex-direction:column; gap:1px; background:var(--linha); border:1px solid var(--linha);}
-  .funnel-mini .fm-step{
-    background:var(--preto); padding:14px 20px;
-    display:flex; align-items:center; justify-content:space-between; gap:12px;
+  /* icon badge */
+  .viz-icon-badge{
+    width:34px; height:34px; border-radius:10px;
+    background:rgba(123,167,188,0.14); color:var(--azul-acinzentado);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
   }
-  .funnel-mini .fm-step .fm-name{font-size:13px; color:var(--azul-claro); font-weight:300;}
-  .funnel-mini .fm-step .fm-val{font-size:14px; color:var(--off-white); font-weight:700;}
+  .viz-icon-badge svg{width:17px; height:17px;}
 
-  .dash-questions{margin-top:8px;}
-  .dash-questions li{
-    font-size:13.6px; color:var(--azul-claro); font-weight:300;
-    padding:13px 0; border-bottom:1px solid var(--linha); list-style:none;
-    padding-left:22px; position:relative;
+  /* hero KPI cards w/ sparkline */
+  .viz-kpi-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:18px;}
+  .viz-kpi{
+    border:1px solid var(--linha); padding:20px 20px 6px;
+    background:linear-gradient(180deg, rgba(123,167,188,0.05), transparent);
+    display:flex; flex-direction:column;
   }
-  .dash-questions li:last-child{border-bottom:none;}
-  .dash-questions li::before{content:"?"; position:absolute; left:0; top:13px; color:var(--azul-acinzentado); font-weight:700;}
+  .viz-kpi-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;}
+  .viz-kpi-delta{font-size:10.5px; font-weight:700; padding:4px 9px; border-radius:999px;}
+  .viz-kpi-delta.up{color:#7FC8A9; background:rgba(127,200,169,0.12);}
+  .viz-kpi-delta.down{color:#E08A8A; background:rgba(224,138,138,0.12);}
+  .viz-kpi-delta.flat{color:var(--azul-acinzentado); background:rgba(123,167,188,0.1);}
+  .viz-kpi-val{font-size:23px; font-weight:800; color:var(--off-white); line-height:1.1;}
+  .viz-kpi-lab{font-size:10.5px; color:var(--azul-acinzentado); text-transform:uppercase; letter-spacing:0.06em; margin:4px 0 10px;}
+  .viz-spark{width:100%; height:30px; display:block; margin-top:auto;}
+  .viz-spark polyline.line{fill:none; stroke:var(--azul-acinzentado); stroke-width:2; stroke-linecap:round; stroke-linejoin:round;}
+  .viz-spark polygon.area{fill:rgba(123,167,188,0.14); stroke:none;}
+
+  /* compact stat chips */
+  .viz-chip-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:18px;}
+  .viz-chip{
+    border:1px solid var(--linha); padding:16px 18px;
+    display:flex; align-items:center; gap:12px;
+  }
+  .viz-chip-val{font-size:17px; font-weight:800; color:var(--off-white); display:block;}
+  .viz-chip-lab{font-size:10.5px; color:var(--azul-acinzentado); text-transform:uppercase; letter-spacing:0.05em; margin-top:2px;}
+
+  /* donut chart */
+  .donut-wrap{display:flex; align-items:center; gap:26px; flex-wrap:wrap;}
+  .donut{
+    width:140px; height:140px; border-radius:50%; position:relative; flex-shrink:0;
+  }
+  .donut-hole{
+    position:absolute; inset:16px; border-radius:50%; background:var(--preto);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+  }
+  .dark .donut-hole, .dark .gauge-hole{background:var(--navy);}
+  .donut-hole .dh-val{font-size:19px; font-weight:800; color:var(--off-white);}
+  .donut-hole .dh-lab{font-size:9px; color:var(--azul-acinzentado); text-transform:uppercase; letter-spacing:0.05em; text-align:center;}
+  .legend-list{display:flex; flex-direction:column; gap:11px; flex:1; min-width:170px;}
+  .legend-item{display:flex; align-items:center; gap:10px; font-size:12.5px; color:var(--azul-claro);}
+  .legend-dot{width:10px; height:10px; border-radius:3px; flex-shrink:0;}
+  .legend-item strong{color:var(--off-white); margin-left:auto; font-weight:700; font-size:12.5px;}
+
+  /* vertical bar chart */
+  .vbar-chart{display:flex; align-items:flex-end; gap:22px; height:150px; padding-top:6px;}
+  .vbar-col{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%;}
+  .vbar-val{font-size:12px; font-weight:700; color:var(--off-white); margin-bottom:8px;}
+  .vbar{width:100%; max-width:44px; border-radius:6px 6px 2px 2px; background:linear-gradient(180deg, var(--azul-acinzentado), rgba(123,167,188,0.3));}
+  .vbar-lab{font-size:10.5px; color:var(--azul-claro); margin-top:10px; text-align:center;}
+
+  /* funnel */
+  .viz-funnel{display:flex; flex-direction:column; align-items:center; gap:14px;}
+  .vf-row{width:100%; max-width:520px; text-align:center;}
+  .vf-bar{
+    margin:0 auto; color:var(--azul-profundo); font-weight:700; font-size:12.5px;
+    padding:12px 0; border-radius:5px;
+    background:linear-gradient(90deg, var(--azul-acinzentado), rgba(123,167,188,0.55));
+  }
+  .vf-lab{font-size:10.5px; color:var(--azul-acinzentado); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;}
+  .vf-arrow{color:var(--azul-acinzentado); font-size:13px; opacity:0.6;}
+
+  /* gauge */
+  .gauge-wrap{display:flex; align-items:center; gap:20px;}
+  .gauge{width:96px; height:96px; border-radius:50%; position:relative; flex-shrink:0;}
+  .gauge-hole{
+    position:absolute; inset:12px; border-radius:50%; background:var(--preto);
+    display:flex; align-items:center; justify-content:center;
+    font-size:16px; font-weight:800; color:var(--off-white);
+  }
+  .gauge-info .gi-val{font-size:20px; font-weight:800; color:var(--off-white); display:block;}
+  .gauge-info .gi-lab{font-size:10.5px; color:var(--azul-acinzentado); text-transform:uppercase; letter-spacing:0.05em; margin-top:2px;}
+  .gauge-info .gi-note{font-size:11.5px; color:var(--azul-claro); font-weight:300; margin-top:6px;}
+
+  .dash-compact-list{margin-top:0;}
+  .dash-compact-list li{
+    font-size:12.8px; color:var(--azul-claro); font-weight:300;
+    padding:11px 0; border-bottom:1px solid var(--linha); list-style:none;
+    padding-left:20px; position:relative;
+  }
+  .dash-compact-list li:last-child{border-bottom:none;}
+  .dash-compact-list li::before{content:"?"; position:absolute; left:0; top:11px; color:var(--azul-acinzentado); font-weight:700; font-size:12px;}
 
   @media(max-width:900px){
-    .kpi-grid{grid-template-columns:1fr 1fr;}
+    .viz-kpi-grid{grid-template-columns:1fr 1fr;}
+    .viz-chip-grid{grid-template-columns:1fr 1fr;}
     .dash-grid-2{grid-template-columns:1fr;}
+    .dash-grid-3{grid-template-columns:1fr;}
   }
   @media(max-width:560px){
-    .kpi-grid{grid-template-columns:1fr;}
+    .viz-kpi-grid{grid-template-columns:1fr;}
+    .viz-chip-grid{grid-template-columns:1fr;}
+    .vbar-chart{gap:10px;}
   }
 
   @media(max-width:820px){
@@ -1716,43 +1773,6 @@
       </div>
     </div>
 
-    <div class="section-head" style="margin-top:60px;"><span class="idx">W2</span><h2>Sugestões de cross-sell e produtos complementares</h2></div>
-    <p class="section-intro">Ideias para avaliarmos em conjunto <strong>depois de validar a operação principal</strong>. Nenhuma entra agora, mas já deixamos mapeado o que o Studio Wica poderia produzir de material para cada uma.</p>
-
-    <div class="cross-grid">
-      <div class="cross-card">
-        <span class="cross-tipo">Order bump · checkout</span>
-        <h4>Guia anti-inflamatório de receitas</h4>
-        <p>E-book com receitas e lista de compras para desinchar, oferecido por um valor pequeno no checkout. Material: capa, diagramação e mockup.</p>
-      </div>
-      <div class="cross-card">
-        <span class="cross-tipo">Upsell · pós-compra</span>
-        <h4>Consultoria individual com o Lázaro</h4>
-        <p>Acompanhamento mais próximo para quem quer resultado acelerado. Material: página de oferta e criativos de upgrade.</p>
-      </div>
-      <div class="cross-card">
-        <span class="cross-tipo">Produto complementar</span>
-        <h4>Protocolo "Desincha 21 dias"</h4>
-        <p>Desafio de entrada com treinos curtos e hábitos anti-inflamatórios, porta de entrada para o plano completo. Material: identidade do desafio e kit de divulgação.</p>
-      </div>
-      <div class="cross-card">
-        <span class="cross-tipo">Campanha sazonal</span>
-        <h4>Kit Projeto Verão</h4>
-        <p>Combo do mote de verão: plano trimestral/semestral + bônus exclusivos para chegar em dezembro transformada. Material: campanha completa com criativos e LP de oferta.</p>
-      </div>
-      <div class="cross-card">
-        <span class="cross-tipo">Retenção · comunidade</span>
-        <h4>Desafio de constância entre alunas</h4>
-        <p>Dinâmica no grupo com ranking e premiação simbólica para aumentar engajamento e retenção. Material: artes do desafio e templates de stories.</p>
-      </div>
-      <div class="cross-card">
-        <span class="cross-tipo">2ª etapa · audiência</span>
-        <h4>Projeto embaixadoras</h4>
-        <p>Influenciadoras passando pelo método com antes/depois documentado, gerando prova social e novas audiências. Material: mídia kit e roteiro de acompanhamento.</p>
-      </div>
-    </div>
-
-    <div class="callout" style="margin-top:30px;"><strong>Como vamos priorizar:</strong> primeiro a operação principal redonda (LP, checkout, trackeamento e tráfego). Depois, escolhemos juntos 1 ou 2 dessas frentes com base nos dados do primeiro mês, como plano mais vendido, taxa de recompra e engajamento da base.</div>
   </div>
 </section>
 
@@ -2218,6 +2238,48 @@ Adicione o <strong>Desinflama Express</strong> por apenas R$27 e tenha treinos r
   </div>
 </section>
 
+<section class="dark">
+  <div class="container">
+    <div class="section-head"><span class="idx">OB5</span><h2>Sugestões de cross-sell e produtos complementares</h2></div>
+    <p class="section-intro">Ideias para avaliarmos em conjunto <strong>depois de validar a operação principal</strong>. Nenhuma entra agora, mas já deixamos mapeado o que o Studio Wica poderia produzir de material para cada uma.</p>
+
+    <div class="cross-grid">
+      <div class="cross-card">
+        <span class="cross-tipo">Order bump · checkout</span>
+        <h4>Guia anti-inflamatório de receitas</h4>
+        <p>E-book com receitas e lista de compras para desinchar, oferecido por um valor pequeno no checkout. Material: capa, diagramação e mockup.</p>
+      </div>
+      <div class="cross-card">
+        <span class="cross-tipo">Upsell · pós-compra</span>
+        <h4>Consultoria individual com o Lázaro</h4>
+        <p>Acompanhamento mais próximo para quem quer resultado acelerado. Material: página de oferta e criativos de upgrade.</p>
+      </div>
+      <div class="cross-card">
+        <span class="cross-tipo">Produto complementar</span>
+        <h4>Protocolo "Desincha 21 dias"</h4>
+        <p>Desafio de entrada com treinos curtos e hábitos anti-inflamatórios, porta de entrada para o plano completo. Material: identidade do desafio e kit de divulgação.</p>
+      </div>
+      <div class="cross-card">
+        <span class="cross-tipo">Campanha sazonal</span>
+        <h4>Kit Projeto Verão</h4>
+        <p>Combo do mote de verão: plano trimestral/semestral + bônus exclusivos para chegar em dezembro transformada. Material: campanha completa com criativos e LP de oferta.</p>
+      </div>
+      <div class="cross-card">
+        <span class="cross-tipo">Retenção · comunidade</span>
+        <h4>Desafio de constância entre alunas</h4>
+        <p>Dinâmica no grupo com ranking e premiação simbólica para aumentar engajamento e retenção. Material: artes do desafio e templates de stories.</p>
+      </div>
+      <div class="cross-card">
+        <span class="cross-tipo">2ª etapa · audiência</span>
+        <h4>Projeto embaixadoras</h4>
+        <p>Influenciadoras passando pelo método com antes/depois documentado, gerando prova social e novas audiências. Material: mídia kit e roteiro de acompanhamento.</p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:30px;"><strong>Como vamos priorizar:</strong> primeiro a operação principal redonda (LP, checkout, trackeamento e tráfego). Depois, escolhemos juntos 1 ou 2 dessas frentes com base nos dados do primeiro mês, como plano mais vendido, taxa de recompra e engajamento da base.</div>
+  </div>
+</section>
+
 </div><!-- /tab-orderbumps -->
 
 <!-- ================= ABA 6 · REFERÊNCIAS DE CRIATIVOS ================= -->
@@ -2286,8 +2348,7 @@ Adicione o <strong>Desinflama Express</strong> por apenas R$27 e tenha treinos r
 <section>
   <div class="container">
     <div class="section-head"><span class="idx">D1</span><h2>Protótipo do dashboard de acompanhamento</h2></div>
-    <span class="dash-badge">Dados fictícios · só para validação do layout e das métricas</span>
-    <p class="section-intro">Este protótipo usa os indicadores definidos na <strong>Fase 6 do cronograma</strong> (Dashboard de acompanhamento), com números de exemplo. A ideia é validar com o time <strong>quais métricas fazem sentido acompanhar e como organizar a visão</strong> antes de conectar as fontes de dados reais (Hotmart, Mfit, Pixel/Meta Ads). Depois da validação, plugamos os dados de verdade nos mesmos lugares.</p>
+    <span class="dash-badge">Dados fictícios · só para validar layout e métricas</span>
 
     <div class="filter-bar">
       <div class="f-chip">Período <span>· últimos 30 dias</span></div>
@@ -2296,49 +2357,117 @@ Adicione o <strong>Desinflama Express</strong> por apenas R$27 e tenha treinos r
       <div class="f-chip">Plano <span>· todos</span></div>
     </div>
 
-    <div class="kpi-grid">
-      <div class="kpi-card"><div class="kpi-lab">Investimento</div><span class="kpi-val">R$ 8.400</span><span class="kpi-delta flat">exemplo</span></div>
-      <div class="kpi-card"><div class="kpi-lab">Faturamento</div><span class="kpi-val">R$ 24.900</span><span class="kpi-delta up">exemplo</span></div>
-      <div class="kpi-card"><div class="kpi-lab">ROAS</div><span class="kpi-val">2,96x</span><span class="kpi-delta up">exemplo</span></div>
-      <div class="kpi-card"><div class="kpi-lab">CAC</div><span class="kpi-val">R$ 63</span><span class="kpi-delta flat">exemplo</span></div>
-      <div class="kpi-card"><div class="kpi-lab">Conversão da LP</div><span class="kpi-val">3,8%</span><span class="kpi-delta flat">exemplo</span></div>
-      <div class="kpi-card"><div class="kpi-lab">Checkout iniciado</div><span class="kpi-val">412</span><span class="kpi-delta flat">exemplo</span></div>
+    <div class="viz-kpi-grid">
+      <div class="viz-kpi">
+        <div class="viz-kpi-top">
+          <div class="viz-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 6"/><polyline points="15 6 21 6 21 12"/></svg></div>
+          <span class="viz-kpi-delta up">+18%</span>
+        </div>
+        <span class="viz-kpi-val">R$ 24.900</span>
+        <span class="viz-kpi-lab">Faturamento</span>
+        <svg class="viz-spark" viewBox="0 0 100 30" preserveAspectRatio="none">
+          <polygon class="area" points="0,24 15,22 30,20 45,17 60,15 75,10 90,6 100,4 100,30 0,30"/>
+          <polyline class="line" points="0,24 15,22 30,20 45,17 60,15 75,10 90,6 100,4"/>
+        </svg>
+      </div>
+      <div class="viz-kpi">
+        <div class="viz-kpi-top">
+          <div class="viz-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="6"/><circle cx="15" cy="15" r="6"/></svg></div>
+          <span class="viz-kpi-delta flat">estável</span>
+        </div>
+        <span class="viz-kpi-val">R$ 8.400</span>
+        <span class="viz-kpi-lab">Investimento</span>
+        <svg class="viz-spark" viewBox="0 0 100 30" preserveAspectRatio="none">
+          <polygon class="area" points="0,16 15,15 30,17 45,14 60,16 75,15 90,14 100,15 100,30 0,30"/>
+          <polyline class="line" points="0,16 15,15 30,17 45,14 60,16 75,15 90,14 100,15"/>
+        </svg>
+      </div>
+      <div class="viz-kpi">
+        <div class="viz-kpi-top">
+          <div class="viz-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg></div>
+          <span class="viz-kpi-delta up">+0,4x</span>
+        </div>
+        <span class="viz-kpi-val">2,96x</span>
+        <span class="viz-kpi-lab">ROAS</span>
+        <svg class="viz-spark" viewBox="0 0 100 30" preserveAspectRatio="none">
+          <polygon class="area" points="0,20 15,18 30,19 45,14 60,12 75,10 90,8 100,6 100,30 0,30"/>
+          <polyline class="line" points="0,20 15,18 30,19 45,14 60,12 75,10 90,8 100,6"/>
+        </svg>
+      </div>
+      <div class="viz-kpi">
+        <div class="viz-kpi-top">
+          <div class="viz-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12.6 3.4 4 12l8 8 8.6-8.6a2 2 0 0 0 0-2.8L15.4 3.4a2 2 0 0 0-2.8 0Z"/><circle cx="8.5" cy="8.5" r="1.1" fill="currentColor" stroke="none"/></svg></div>
+          <span class="viz-kpi-delta flat">estável</span>
+        </div>
+        <span class="viz-kpi-val">R$ 63</span>
+        <span class="viz-kpi-lab">CAC</span>
+        <svg class="viz-spark" viewBox="0 0 100 30" preserveAspectRatio="none">
+          <polygon class="area" points="0,10 15,12 30,11 45,14 60,13 75,16 90,15 100,17 100,30 0,30"/>
+          <polyline class="line" points="0,10 15,12 30,11 45,14 60,13 75,16 90,15 100,17"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="viz-chip-grid">
+      <div class="viz-chip">
+        <div class="viz-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16l-6.5 8.2v6.3l-3 1.5v-7.8Z"/></svg></div>
+        <div><span class="viz-chip-val">3,8%</span><span class="viz-chip-lab">Conversão da LP</span></div>
+      </div>
+      <div class="viz-chip">
+        <div class="viz-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.6 12.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9" cy="20" r="1.2" fill="currentColor" stroke="none"/><circle cx="18" cy="20" r="1.2" fill="currentColor" stroke="none"/></svg></div>
+        <div><span class="viz-chip-val">412</span><span class="viz-chip-lab">Checkout iniciado</span></div>
+      </div>
+      <div class="viz-chip">
+        <div class="viz-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-6 8-6s8 2 8 6"/></svg></div>
+        <div><span class="viz-chip-val">386</span><span class="viz-chip-lab">Alunos ativos</span></div>
+      </div>
+      <div class="viz-chip">
+        <div class="viz-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 14-5.3L21 9"/><path d="M21 4v5h-5"/><path d="M20 12a8 8 0 0 1-14 5.3L3 15"/><path d="M3 20v-5h5"/></svg></div>
+        <div><span class="viz-chip-val">34</span><span class="viz-chip-lab">Leads recuperados</span></div>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="dark">
   <div class="container">
-    <div class="section-head"><span class="idx">D2</span><h2>Vendas por plano e por origem</h2></div>
-    <p class="section-intro">Organização por plano e por origem de venda, como previsto no cronograma ("organização por período, campanha, criativo e plano").</p>
+    <div class="section-head"><span class="idx">D2</span><h2>Vendas: plano, origem e funil</h2></div>
 
     <div class="dash-grid-2">
       <div class="dash-panel">
         <div class="dash-panel-head"><h4>Plano mais vendido</h4><span class="dp-note">Exemplo</span></div>
-        <div class="bar-list">
-          <div class="bar-row"><div class="bar-top"><span class="bar-name">Trimestral</span><span class="bar-val">54%</span></div><div class="bar-track"><div class="bar-fill" style="width:54%"></div></div></div>
-          <div class="bar-row"><div class="bar-top"><span class="bar-name">Mensal</span><span class="bar-val">31%</span></div><div class="bar-track"><div class="bar-fill" style="width:31%"></div></div></div>
-          <div class="bar-row"><div class="bar-top"><span class="bar-name">Semestral</span><span class="bar-val">15%</span></div><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div></div>
+        <div class="vbar-chart">
+          <div class="vbar-col"><span class="vbar-val">54%</span><div class="vbar" style="height:130px"></div><span class="vbar-lab">Trimestral</span></div>
+          <div class="vbar-col"><span class="vbar-val">31%</span><div class="vbar" style="height:75px"></div><span class="vbar-lab">Mensal</span></div>
+          <div class="vbar-col"><span class="vbar-val">15%</span><div class="vbar" style="height:36px"></div><span class="vbar-lab">Semestral</span></div>
         </div>
       </div>
       <div class="dash-panel">
         <div class="dash-panel-head"><h4>Origem das vendas</h4><span class="dp-note">Exemplo</span></div>
-        <div class="bar-list">
-          <div class="bar-row"><div class="bar-top"><span class="bar-name">Tráfego pago</span><span class="bar-val">48%</span></div><div class="bar-track"><div class="bar-fill" style="width:48%"></div></div></div>
-          <div class="bar-row"><div class="bar-top"><span class="bar-name">Orgânico/Instagram</span><span class="bar-val">33%</span></div><div class="bar-track"><div class="bar-fill" style="width:33%"></div></div></div>
-          <div class="bar-row"><div class="bar-top"><span class="bar-name">WhatsApp/CRM</span><span class="bar-val">12%</span></div><div class="bar-track"><div class="bar-fill" style="width:12%"></div></div></div>
-          <div class="bar-row"><div class="bar-top"><span class="bar-name">Outros</span><span class="bar-val">7%</span></div><div class="bar-track"><div class="bar-fill" style="width:7%"></div></div></div>
+        <div class="donut-wrap">
+          <div class="donut" style="background:conic-gradient(var(--azul-acinzentado) 0% 48%, var(--azul-claro) 48% 81%, rgba(123,167,188,0.55) 81% 93%, rgba(123,167,188,0.18) 93% 100%)">
+            <div class="donut-hole"><span class="dh-val">168</span><span class="dh-lab">vendas</span></div>
+          </div>
+          <div class="legend-list">
+            <div class="legend-item"><span class="legend-dot" style="background:var(--azul-acinzentado)"></span>Tráfego pago<strong>48%</strong></div>
+            <div class="legend-item"><span class="legend-dot" style="background:var(--azul-claro)"></span>Orgânico/Instagram<strong>33%</strong></div>
+            <div class="legend-item"><span class="legend-dot" style="background:rgba(123,167,188,0.55)"></span>WhatsApp/CRM<strong>12%</strong></div>
+            <div class="legend-item"><span class="legend-dot" style="background:rgba(123,167,188,0.18)"></span>Outros<strong>7%</strong></div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="dash-panel" style="margin-top:24px;">
+    <div class="dash-panel" style="margin-top:18px;">
       <div class="dash-panel-head"><h4>Funil de checkout</h4><span class="dp-note">Exemplo</span></div>
-      <div class="funnel-mini">
-        <div class="fm-step"><span class="fm-name">Visualização da LP</span><span class="fm-val">10.850</span></div>
-        <div class="fm-step"><span class="fm-name">Clique no botão</span><span class="fm-val">1.290</span></div>
-        <div class="fm-step"><span class="fm-name">Checkout iniciado</span><span class="fm-val">412</span></div>
-        <div class="fm-step"><span class="fm-name">Compra</span><span class="fm-val">168</span></div>
+      <div class="viz-funnel">
+        <div class="vf-row"><div class="vf-lab">Visualização da LP</div><div class="vf-bar" style="width:100%">10.850</div></div>
+        <div class="vf-arrow">▾</div>
+        <div class="vf-row"><div class="vf-lab">Clique no botão</div><div class="vf-bar" style="width:60%">1.290</div></div>
+        <div class="vf-arrow">▾</div>
+        <div class="vf-row"><div class="vf-lab">Checkout iniciado</div><div class="vf-bar" style="width:36%">412</div></div>
+        <div class="vf-arrow">▾</div>
+        <div class="vf-row"><div class="vf-lab">Compra</div><div class="vf-bar" style="width:22%">168</div></div>
       </div>
     </div>
   </div>
@@ -2347,15 +2476,29 @@ Adicione o <strong>Desinflama Express</strong> por apenas R$27 e tenha treinos r
 <section>
   <div class="container">
     <div class="section-head"><span class="idx">D3</span><h2>Retenção e base</h2></div>
-    <p class="section-intro">Visão de retenção e recuperação, cruzando dados da Mfit, Hotmart e CRM/WhatsApp, como alinhado na Fase 5 do cronograma.</p>
 
-    <div class="kpi-grid">
-      <div class="kpi-card"><div class="kpi-lab">Alunos ativos</div><span class="kpi-val">386</span><span class="kpi-delta flat">exemplo</span></div>
-      <div class="kpi-card"><div class="kpi-lab">Cancelamentos</div><span class="kpi-val">22</span><span class="kpi-delta down">exemplo</span></div>
-      <div class="kpi-card"><div class="kpi-lab">Retenção</div><span class="kpi-val">91%</span><span class="kpi-delta up">exemplo</span></div>
-      <div class="kpi-card"><div class="kpi-lab">LTV estimado</div><span class="kpi-val">R$ 187</span><span class="kpi-delta flat">exemplo</span></div>
-      <div class="kpi-card"><div class="kpi-lab">Leads recuperados</div><span class="kpi-val">34</span><span class="kpi-delta up">exemplo</span></div>
-      <div class="kpi-card"><div class="kpi-lab">Assinaturas ativas</div><span class="kpi-val">386</span><span class="kpi-delta flat">exemplo</span></div>
+    <div class="dash-grid-3">
+      <div class="dash-panel">
+        <div class="dash-panel-head"><h4>Retenção</h4><span class="dp-note">Exemplo</span></div>
+        <div class="gauge-wrap">
+          <div class="gauge" style="background:conic-gradient(#7FC8A9 0% 91%, rgba(255,255,255,0.08) 91% 100%)"><div class="gauge-hole">91%</div></div>
+          <div><span class="gi-val" style="display:block; font-size:13px; color:var(--azul-claro); font-weight:300;">386 alunos ativos</span></div>
+        </div>
+      </div>
+      <div class="dash-panel">
+        <div class="dash-panel-head"><h4>Cancelamentos</h4><span class="dp-note">Exemplo</span></div>
+        <div class="gauge-wrap">
+          <div class="viz-icon-badge" style="width:52px; height:52px; border-radius:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px; height:24px;"><polyline points="3 7 9 13 5 17"/><polyline points="21 7 15 13 19 17"/></svg></div>
+          <div class="gauge-info"><span class="gi-val">22</span><span class="gi-lab">no período</span></div>
+        </div>
+      </div>
+      <div class="dash-panel">
+        <div class="dash-panel-head"><h4>LTV estimado</h4><span class="dp-note">Exemplo</span></div>
+        <div class="gauge-wrap">
+          <div class="viz-icon-badge" style="width:52px; height:52px; border-radius:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px; height:24px;"><path d="M12 2v20M17 5.5c0-1.9-2.2-3.5-5-3.5S7 3.6 7 5.5 9.2 9 12 9s5 1.6 5 3.5-2.2 3.5-5 3.5-5-1.6-5-3.5"/></svg></div>
+          <div class="gauge-info"><span class="gi-val">R$ 187</span><span class="gi-lab">por assinante</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -2363,16 +2506,15 @@ Adicione o <strong>Desinflama Express</strong> por apenas R$27 e tenha treinos r
 <section class="dark">
   <div class="container">
     <div class="section-head"><span class="idx">D4</span><h2>Perguntas para validar com o time</h2></div>
-    <p class="section-intro">Antes de conectar as fontes reais, precisamos confirmar se este é o recorte certo de métricas e visões.</p>
-    <ul class="questions dash-questions">
-      <li>Esses são os indicadores certos, ou falta algum indicador importante para o Lázaro?</li>
-      <li>O funil de checkout (LP → clique → checkout → compra) é suficiente ou precisa de mais etapas?</li>
-      <li>Faz sentido abrir "Origem das vendas" por campanha/criativo além da visão geral?</li>
-      <li>O LTV estimado deve considerar só assinatura ativa ou também upsell/order bump quando existirem?</li>
-      <li>Quem vai acompanhar o dashboard no dia a dia e com que frequência (diária, semanal, quinzenal)?</li>
-      <li>Depois da validação, quais fontes conectamos primeiro: Hotmart, Mfit ou Pixel/Meta Ads?</li>
+    <ul class="dash-compact-list">
+      <li>Esses são os indicadores certos, ou falta algum importante?</li>
+      <li>O funil de checkout precisa de mais etapas?</li>
+      <li>Vale abrir "Origem das vendas" por campanha/criativo?</li>
+      <li>LTV considera só assinatura ativa, ou também upsell/order bump?</li>
+      <li>Quem acompanha o dashboard e com que frequência?</li>
+      <li>Depois de validar, conectamos primeiro Hotmart, Mfit ou Pixel/Meta Ads?</li>
     </ul>
-    <div class="callout" style="margin-top:24px;"><strong>Próximo passo:</strong> validar este protótipo com o time (Lázaro, Ana, Studio Wica). Só depois da validação conectamos as fontes reais nos mesmos lugares, sem mudar a estrutura do dashboard.</div>
+    <div class="callout" style="margin-top:22px;"><strong>Próximo passo:</strong> validar este protótipo com o time. Só depois conectamos as fontes reais nos mesmos lugares, sem mudar a estrutura do dashboard.</div>
   </div>
 </section>
 

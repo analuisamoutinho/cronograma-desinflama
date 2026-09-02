@@ -45,25 +45,33 @@
     padding:0 40px;
   }
 
-  /* ============ HEADER / HERO ============ */
-  header.hero{
+  /* ============ TOPBAR ============ */
+  header.topbar{
+    position:relative;
+    background:linear-gradient(180deg, var(--navy) 0%, var(--preto) 100%);
+    padding:26px 0;
+    border-bottom:1px solid var(--linha);
+  }
+
+  /* ============ HEADER / HERO (aba Cronograma) ============ */
+  .cronograma-hero{
     position:relative;
     background:
       radial-gradient(circle at 85% 15%, rgba(123,167,188,0.10), transparent 45%),
       linear-gradient(180deg, var(--navy) 0%, var(--preto) 100%);
-    padding:90px 0 70px;
+    padding:70px 0 70px;
     border-bottom:1px solid var(--linha);
     overflow:hidden;
   }
 
-  .hero .container{position:relative; z-index:2;}
+  .cronograma-hero .container{position:relative; z-index:2;}
 
   .brandmark{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    margin-bottom:70px;
   }
+  .topbar .brandmark{margin-bottom:0;}
 
   .brandmark .logo{
     font-weight:800;
@@ -852,6 +860,111 @@
     .final-offer .fo-row{flex-direction:column; align-items:flex-start;}
   }
 
+  /* ============ REFERÊNCIAS DE CRIATIVOS (ABA 6) ============ */
+  .ref-form{
+    border:1px solid var(--linha);
+    padding:26px 28px;
+    background:rgba(123,167,188,0.03);
+    margin-bottom:44px;
+  }
+  .ref-form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+  }
+  .ref-field{display:flex; flex-direction:column; gap:8px;}
+  .ref-field.span-2{grid-column:1 / -1;}
+  .ref-field label{
+    font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--azul-acinzentado);
+  }
+  .ref-field input, .ref-field select, .ref-field textarea{
+    background:var(--preto);
+    border:1px solid var(--linha);
+    color:var(--off-white);
+    font-family:'Poppins', sans-serif;
+    font-size:13.5px;
+    font-weight:300;
+    padding:11px 14px;
+    border-radius:4px;
+    outline:none;
+  }
+  .ref-field input:focus, .ref-field select:focus, .ref-field textarea:focus{
+    border-color:var(--azul-acinzentado);
+  }
+  .ref-field textarea{resize:vertical; min-height:70px; font-family:'Poppins', sans-serif;}
+  .ref-submit{
+    appearance:none;
+    margin-top:22px;
+    background:var(--azul-acinzentado);
+    color:var(--azul-profundo);
+    border:none;
+    font-family:'Poppins', sans-serif;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:13px 26px;
+    border-radius:4px;
+    cursor:pointer;
+  }
+  .ref-submit:hover{opacity:0.9;}
+
+  .ref-toolbar{
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    margin-bottom:22px; flex-wrap:wrap;
+  }
+  .ref-count{font-size:12.5px; color:var(--azul-acinzentado); font-weight:600; letter-spacing:0.04em; text-transform:uppercase;}
+  .ref-filter{
+    background:var(--preto); border:1px solid var(--linha); color:var(--off-white);
+    font-family:'Poppins', sans-serif; font-size:12.5px; padding:9px 14px; border-radius:999px; outline:none;
+  }
+
+  .ref-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+    gap:18px;
+  }
+  .ref-card{
+    border:1px solid var(--linha);
+    padding:20px 22px;
+    background:linear-gradient(180deg, rgba(123,167,188,0.04), transparent);
+    position:relative;
+  }
+  .ref-card .ref-badge{
+    display:inline-block;
+    font-size:10px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase;
+    padding:4px 12px; border-radius:999px;
+    background:rgba(123,167,188,0.12); color:var(--azul-acinzentado); border:1px solid rgba(123,167,188,0.4);
+    margin-bottom:12px;
+  }
+  .ref-card h4{font-size:14.5px; margin-bottom:8px; padding-right:26px;}
+  .ref-card p{font-size:13px; font-weight:300; color:var(--azul-claro); margin-bottom:10px;}
+  .ref-card a.ref-link{
+    font-size:12.5px; font-weight:600; color:var(--azul-acinzentado); word-break:break-all;
+  }
+  .ref-card .ref-tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:12px;}
+  .ref-card .ref-tags span{
+    font-size:10.5px; color:var(--azul-claro); border:1px solid var(--linha); border-radius:999px; padding:3px 10px;
+  }
+  .ref-card .ref-del{
+    position:absolute; top:16px; right:16px;
+    background:none; border:none; color:var(--azul-acinzentado);
+    font-size:16px; cursor:pointer; line-height:1; padding:2px 4px;
+  }
+  .ref-card .ref-del:hover{color:#E08A8A;}
+  .ref-card .ref-date{
+    font-size:10.5px; color:var(--azul-acinzentado); letter-spacing:0.04em; text-transform:uppercase; margin-top:12px;
+  }
+  .ref-empty{
+    border:1px dashed var(--linha); padding:40px; text-align:center;
+    color:var(--azul-claro); font-size:13.5px; font-weight:300;
+  }
+
+  @media(max-width:820px){
+    .ref-form-grid{grid-template-columns:1fr;}
+  }
+
   @media(max-width:820px){
     .status-summary{grid-template-columns:1fr;}
     .status-grid{grid-template-columns:1fr;}
@@ -875,20 +988,11 @@
 </head>
 <body>
 
-<header class="hero">
+<header class="topbar">
   <div class="container">
     <div class="brandmark">
       <div class="logo">Lázaro<span>Souto</span></div>
       <div class="tag">Documento interno · Projeto</div>
-    </div>
-    <div class="eyebrow">Método Desinflama</div>
-    <h1 class="title">Cronograma detalhado de <span class="accent">estruturação</span> e início da operação</h1>
-    <p class="lede">Pessoal, organizamos aqui o cronograma com base no que alinhamos na reunião: deixar a estrutura do Desinflama redonda (página, checkout, entrega, criativos, trackeamento, dados, CRM/WhatsApp) para chegar em agosto com foco total em tráfego, aproveitando o mote de verão.</p>
-
-    <div class="hero-stats">
-      <div><span class="num">~23 dias</span><span class="lab">de estruturação, em julho</span></div>
-      <div><span class="num">11 fases</span><span class="lab">da estrutura ao tráfego</span></div>
-      <div><span class="num">Agosto</span><span class="lab">início oficial de tráfego</span></div>
     </div>
   </div>
 </header>
@@ -900,11 +1004,26 @@
     <button class="tab-btn" data-tab="tab-wica">Solicitações · Studio Wica</button>
     <button class="tab-btn" data-tab="tab-roteiros">Roteiros · Criativos 3-3-3</button>
     <button class="tab-btn" data-tab="tab-orderbumps">Order Bumps</button>
+    <button class="tab-btn" data-tab="tab-referencias">Referências de Criativos</button>
   </div>
 </nav>
 
 <!-- ================= ABA 1 · CRONOGRAMA ================= -->
 <div id="tab-cronograma" class="tab-content active">
+
+<div class="cronograma-hero">
+  <div class="container">
+    <div class="eyebrow">Método Desinflama</div>
+    <h1 class="title">Cronograma detalhado de <span class="accent">estruturação</span> e início da operação</h1>
+    <p class="lede">Pessoal, organizamos aqui o cronograma com base no que alinhamos na reunião: deixar a estrutura do Desinflama redonda (página, checkout, entrega, criativos, trackeamento, dados, CRM/WhatsApp) para chegar em agosto com foco total em tráfego, aproveitando o mote de verão.</p>
+
+    <div class="hero-stats">
+      <div><span class="num">~23 dias</span><span class="lab">de estruturação, em julho</span></div>
+      <div><span class="num">11 fases</span><span class="lab">da estrutura ao tráfego</span></div>
+      <div><span class="num">Agosto</span><span class="lab">início oficial de tráfego</span></div>
+    </div>
+  </div>
+</div>
 
 <!-- 1. OBJETIVO -->
 <section>
@@ -2021,6 +2140,66 @@ Adicione o <strong>Desinflama Express</strong> por apenas R$27 e tenha treinos r
 
 </div><!-- /tab-orderbumps -->
 
+<!-- ================= ABA 6 · REFERÊNCIAS DE CRIATIVOS ================= -->
+<div id="tab-referencias" class="tab-content">
+
+<section>
+  <div class="container">
+    <div class="section-head"><span class="idx">RC1</span><h2>Referências para novos criativos</h2></div>
+    <p class="section-intro">Cadastre aqui links e ideias de referência (anúncios, vídeos, posts, páginas) para inspirar a produção de novos criativos. Fica salvo neste navegador, então dá pra ir guardando referências à medida que forem aparecendo.</p>
+
+    <form class="ref-form" id="ref-form">
+      <div class="ref-form-grid">
+        <div class="ref-field">
+          <label for="ref-titulo">Título / nome da referência</label>
+          <input type="text" id="ref-titulo" placeholder="Ex.: Anúncio de antes/depois com print de relato" required>
+        </div>
+        <div class="ref-field">
+          <label for="ref-tipo">Tipo</label>
+          <select id="ref-tipo">
+            <option value="Vídeo">Vídeo</option>
+            <option value="Estático">Estático</option>
+            <option value="Carrossel">Carrossel</option>
+            <option value="Página/LP">Página/LP</option>
+            <option value="Copy">Copy</option>
+            <option value="Outro">Outro</option>
+          </select>
+        </div>
+        <div class="ref-field span-2">
+          <label for="ref-link">Link</label>
+          <input type="url" id="ref-link" placeholder="https://...">
+        </div>
+        <div class="ref-field span-2">
+          <label for="ref-nota">O que aproveitar dessa referência</label>
+          <textarea id="ref-nota" placeholder="Ex.: Gancho forte nos 3 primeiros segundos, tom de bastidor, CTA direto para o link."></textarea>
+        </div>
+        <div class="ref-field span-2">
+          <label for="ref-tags">Tags (separadas por vírgula)</label>
+          <input type="text" id="ref-tags" placeholder="Ex.: prova social, TOF, mote de verão">
+        </div>
+      </div>
+      <button type="submit" class="ref-submit">+ Adicionar referência</button>
+    </form>
+
+    <div class="ref-toolbar">
+      <span class="ref-count" id="ref-count">0 referências cadastradas</span>
+      <select class="ref-filter" id="ref-filter">
+        <option value="">Todos os tipos</option>
+        <option value="Vídeo">Vídeo</option>
+        <option value="Estático">Estático</option>
+        <option value="Carrossel">Carrossel</option>
+        <option value="Página/LP">Página/LP</option>
+        <option value="Copy">Copy</option>
+        <option value="Outro">Outro</option>
+      </select>
+    </div>
+
+    <div class="ref-grid" id="ref-grid"></div>
+  </div>
+</section>
+
+</div><!-- /tab-referencias -->
+
 <footer>Lázaro Souto · Método Desinflama · Método que transforma. Resultados que ficam.</footer>
 
 <script>
@@ -2042,6 +2221,84 @@ Adicione o <strong>Desinflama Express</strong> por apenas R$27 e tenha treinos r
 
   if(location.hash && document.getElementById(location.hash.slice(1))){
     activate(location.hash.slice(1));
+  }
+
+  /* ============ REFERÊNCIAS DE CRIATIVOS ============ */
+  const REF_KEY = 'desinflama_referencias_criativos';
+
+  function refLoad(){
+    try{ return JSON.parse(localStorage.getItem(REF_KEY)) || []; }
+    catch(e){ return []; }
+  }
+  function refSave(list){
+    try{ localStorage.setItem(REF_KEY, JSON.stringify(list)); }catch(e){}
+  }
+  function refEscape(str){
+    const d = document.createElement('div');
+    d.textContent = str || '';
+    return d.innerHTML;
+  }
+
+  function refRender(){
+    const grid = document.getElementById('ref-grid');
+    const countEl = document.getElementById('ref-count');
+    const filter = document.getElementById('ref-filter').value;
+    if(!grid) return;
+
+    let list = refLoad().sort((a, b) => b.criadoEm - a.criadoEm);
+    countEl.textContent = list.length + (list.length === 1 ? ' referência cadastrada' : ' referências cadastradas');
+
+    if(filter) list = list.filter(r => r.tipo === filter);
+
+    if(list.length === 0){
+      grid.innerHTML = '<div class="ref-empty">Nenhuma referência cadastrada ainda. Use o formulário acima para adicionar a primeira.</div>';
+      return;
+    }
+
+    grid.innerHTML = list.map(ref => {
+      const tags = (ref.tags || []).map(t => '<span>' + refEscape(t) + '</span>').join('');
+      const link = ref.link ? '<a class="ref-link" href="' + refEscape(ref.link) + '" target="_blank" rel="noopener">' + refEscape(ref.link) + '</a>' : '';
+      const nota = ref.nota ? '<p>' + refEscape(ref.nota) + '</p>' : '';
+      const data = new Date(ref.criadoEm).toLocaleDateString('pt-BR');
+      return '<div class="ref-card">' +
+        '<button class="ref-del" data-id="' + ref.id + '" title="Remover">✕</button>' +
+        '<span class="ref-badge">' + refEscape(ref.tipo) + '</span>' +
+        '<h4>' + refEscape(ref.titulo) + '</h4>' +
+        nota +
+        link +
+        '<div class="ref-tags">' + tags + '</div>' +
+        '<div class="ref-date">Adicionado em ' + data + '</div>' +
+        '</div>';
+    }).join('');
+
+    grid.querySelectorAll('.ref-del').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.id;
+        refSave(refLoad().filter(r => String(r.id) !== id));
+        refRender();
+      });
+    });
+  }
+
+  const refForm = document.getElementById('ref-form');
+  if(refForm){
+    refForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const titulo = document.getElementById('ref-titulo').value.trim();
+      if(!titulo) return;
+      const tipo = document.getElementById('ref-tipo').value;
+      const link = document.getElementById('ref-link').value.trim();
+      const nota = document.getElementById('ref-nota').value.trim();
+      const tags = document.getElementById('ref-tags').value.split(',').map(t => t.trim()).filter(Boolean);
+
+      const list = refLoad();
+      list.push({ id: Date.now(), titulo, tipo, link, nota, tags, criadoEm: Date.now() });
+      refSave(list);
+      refForm.reset();
+      refRender();
+    });
+    document.getElementById('ref-filter').addEventListener('change', refRender);
+    refRender();
   }
 </script>
 

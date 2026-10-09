@@ -965,7 +965,7 @@
     .ref-form-grid{grid-template-columns:1fr;}
   }
 
-  /* ============ DASHBOARD · PROTÓTIPO VISUAL (ABA 7) ============ */
+  /* ============ DASHBOARD (ABA 7) ============ */
   .dash-badge{
     display:inline-flex; align-items:center; gap:8px;
     font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
@@ -973,6 +973,7 @@
     padding:8px 16px; border-radius:999px; margin-bottom:22px;
   }
   .dash-badge::before{content:"●"; font-size:8px;}
+  .dash-badge.live{color:#7FC8A9; background:rgba(127,200,169,0.1); border-color:rgba(127,200,169,0.35);}
 
   .filter-bar{
     display:flex; flex-wrap:wrap; gap:10px;
@@ -986,6 +987,7 @@
   }
   .filter-bar .f-chip span{color:var(--azul-acinzentado); font-weight:400;}
   .filter-bar .f-chip::after{content:"▾"; font-size:9px; color:var(--azul-acinzentado);}
+  .filter-bar.static .f-chip::after{display:none;}
 
   .dash-panel{border:1px solid var(--linha); padding:24px 26px;}
   .dash-panel-head{
@@ -1068,9 +1070,31 @@
   /* vertical bar chart */
   .vbar-chart{display:flex; align-items:flex-end; gap:22px; height:150px; padding-top:6px;}
   .vbar-col{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%;}
-  .vbar-val{font-size:12px; font-weight:700; color:var(--off-white); margin-bottom:8px;}
+  .vbar-val{font-size:12px; font-weight:700; color:var(--off-white); margin-bottom:8px; text-align:center;}
+  .vbar-val small{display:block; font-size:10px; font-weight:400; color:var(--azul-acinzentado);}
   .vbar{width:100%; max-width:44px; border-radius:6px 6px 2px 2px; background:linear-gradient(180deg, var(--azul-acinzentado), rgba(123,167,188,0.3));}
   .vbar-lab{font-size:10.5px; color:var(--azul-claro); margin-top:10px; text-align:center;}
+
+  /* paired bars (meta x LP por dia) */
+  .pair-chart{display:flex; align-items:flex-end; gap:14px; height:170px;}
+  .pair-col{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%;}
+  .pair-bars{display:flex; align-items:flex-end; gap:4px; width:100%; justify-content:center;}
+  .pair-bar{flex:1; max-width:28px; border-radius:5px 5px 2px 2px; position:relative; min-height:2px;}
+  .pair-bar span{position:absolute; top:-17px; left:0; right:0; text-align:center; font-size:10.5px; font-weight:700; color:var(--off-white);}
+  .pair-bar.meta{background:var(--azul-acinzentado);}
+  .pair-bar.lp{background:var(--azul-claro);}
+
+  /* horizontal rows (conjuntos / criativos) */
+  .hrow{margin-bottom:16px;}
+  .hrow:last-child{margin-bottom:0;}
+  .hrow-top{display:flex; justify-content:space-between; gap:12px; align-items:baseline; margin-bottom:6px;}
+  .hrow-name{font-size:12.5px; color:var(--off-white); font-weight:600;}
+  .hrow-val{font-size:12px; color:var(--azul-claro); font-weight:700; white-space:nowrap;}
+  .hrow-track{height:6px; border-radius:99px; background:rgba(123,167,188,0.14); overflow:hidden;}
+  .hrow-fill{height:100%; border-radius:99px; background:linear-gradient(90deg, var(--azul-acinzentado), rgba(123,167,188,0.55));}
+  .hrow-sub{font-size:11px; color:var(--azul-acinzentado); font-weight:300; margin-top:5px;}
+  .hrow-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px 36px;}
+  .hrow-grid .hrow{margin-bottom:0;}
 
   /* funnel */
   .viz-funnel{display:flex; flex-direction:column; align-items:center; gap:14px;}
@@ -1102,18 +1126,21 @@
     padding-left:20px; position:relative;
   }
   .dash-compact-list li:last-child{border-bottom:none;}
-  .dash-compact-list li::before{content:"?"; position:absolute; left:0; top:11px; color:var(--azul-acinzentado); font-weight:700; font-size:12px;}
+  .dash-compact-list li::before{content:"→"; position:absolute; left:0; top:11px; color:var(--azul-acinzentado); font-weight:700; font-size:12px;}
 
   @media(max-width:900px){
     .viz-kpi-grid{grid-template-columns:1fr 1fr;}
     .viz-chip-grid{grid-template-columns:1fr 1fr;}
     .dash-grid-2{grid-template-columns:1fr;}
     .dash-grid-3{grid-template-columns:1fr;}
+    .hrow-grid{grid-template-columns:1fr;}
   }
   @media(max-width:560px){
     .viz-kpi-grid{grid-template-columns:1fr;}
     .viz-chip-grid{grid-template-columns:1fr;}
     .vbar-chart{gap:10px;}
+    .pair-chart{gap:6px;}
+    .pair-bar span{font-size:9px;}
   }
 
   @media(max-width:820px){
@@ -2293,90 +2320,85 @@ Adicione o <strong>Desinflama Express</strong> por apenas R$27 e tenha treinos r
 
 </div><!-- /tab-referencias -->
 
-<!-- ================= ABA 7 · DASHBOARD (PROTÓTIPO) ================= -->
+<!-- ================= ABA 7 · DASHBOARD ================= -->
 <div id="tab-dashboard" class="tab-content">
 
 <section>
   <div class="container">
-    <div class="section-head"><span class="idx">D1</span><h2>Protótipo do dashboard de acompanhamento</h2></div>
-    <span class="dash-badge">Dados fictícios · só para validar layout e métricas</span>
+    <div class="section-head"><span class="idx">D1</span><h2>Dashboard de acompanhamento</h2></div>
+    <span class="dash-badge live">Dados reais · Hotmart e LP de 01 a 07/10/2026 · Meta Ads acumulado até 09/10/2026</span>
 
-    <div class="filter-bar">
-      <div class="f-chip">Período <span>· últimos 30 dias</span></div>
-      <div class="f-chip">Campanha <span>· todas</span></div>
-      <div class="f-chip">Criativo <span>· todos</span></div>
-      <div class="f-chip">Plano <span>· todos</span></div>
+    <div class="filter-bar static">
+      <div class="f-chip">Período <span>· 01 a 07/10/2026 (Hotmart e LP)</span></div>
+      <div class="f-chip">Meta Ads <span>· acumulado, 14/02/2025 a 09/10/2026</span></div>
+      <div class="f-chip">Campanha <span>· [CASE] [DESINFLAMA]</span></div>
+      <div class="f-chip">Produto <span>· Desinflama</span></div>
     </div>
 
     <div class="viz-kpi-grid">
       <div class="viz-kpi">
         <div class="viz-kpi-top">
           <div class="viz-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 6"/><polyline points="15 6 21 6 21 12"/></svg></div>
-          <span class="viz-kpi-delta up">+18%</span>
+          <span class="viz-kpi-delta flat">7 dias</span>
         </div>
-        <span class="viz-kpi-val">R$ 24.900</span>
-        <span class="viz-kpi-lab">Faturamento</span>
+        <span class="viz-kpi-val">R$ 2.346,97</span>
+        <span class="viz-kpi-lab">Faturamento aprovado (Hotmart)</span>
         <svg class="viz-spark" viewBox="0 0 100 30" preserveAspectRatio="none">
-          <polygon class="area" points="0,24 15,22 30,20 45,17 60,15 75,10 90,6 100,4 100,30 0,30"/>
-          <polyline class="line" points="0,24 15,22 30,20 45,17 60,15 75,10 90,6 100,4"/>
+          <polygon class="area" points="0,11.8 17,14.2 33,22.0 50,24.5 67,9.3 83,4.0 100,16.7 100,30 0,30"/>
+          <polyline class="line" points="0,11.8 17,14.2 33,22.0 50,24.5 67,9.3 83,4.0 100,16.7"/>
+        </svg>
+      </div>
+      <div class="viz-kpi">
+        <div class="viz-kpi-top">
+          <div class="viz-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.6 12.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9" cy="20" r="1.2" fill="currentColor" stroke="none"/><circle cx="18" cy="20" r="1.2" fill="currentColor" stroke="none"/></svg></div>
+          <span class="viz-kpi-delta flat">61% das transações</span>
+        </div>
+        <span class="viz-kpi-val">28</span>
+        <span class="viz-kpi-lab">Vendas aprovadas</span>
+        <svg class="viz-spark" viewBox="0 0 100 30" preserveAspectRatio="none">
+          <polygon class="area" points="0,7.8 17,15.5 33,19.3 50,11.7 67,4.0 83,4.0 100,19.3 100,30 0,30"/>
+          <polyline class="line" points="0,7.8 17,15.5 33,19.3 50,11.7 67,4.0 83,4.0 100,19.3"/>
         </svg>
       </div>
       <div class="viz-kpi">
         <div class="viz-kpi-top">
           <div class="viz-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="6"/><circle cx="15" cy="15" r="6"/></svg></div>
-          <span class="viz-kpi-delta flat">estável</span>
+          <span class="viz-kpi-delta flat">acumulado</span>
         </div>
-        <span class="viz-kpi-val">R$ 8.400</span>
-        <span class="viz-kpi-lab">Investimento</span>
-        <svg class="viz-spark" viewBox="0 0 100 30" preserveAspectRatio="none">
-          <polygon class="area" points="0,16 15,15 30,17 45,14 60,16 75,15 90,14 100,15 100,30 0,30"/>
-          <polyline class="line" points="0,16 15,15 30,17 45,14 60,16 75,15 90,14 100,15"/>
-        </svg>
-      </div>
-      <div class="viz-kpi">
-        <div class="viz-kpi-top">
-          <div class="viz-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg></div>
-          <span class="viz-kpi-delta up">+0,4x</span>
-        </div>
-        <span class="viz-kpi-val">2,96x</span>
-        <span class="viz-kpi-lab">ROAS</span>
-        <svg class="viz-spark" viewBox="0 0 100 30" preserveAspectRatio="none">
-          <polygon class="area" points="0,20 15,18 30,19 45,14 60,12 75,10 90,8 100,6 100,30 0,30"/>
-          <polyline class="line" points="0,20 15,18 30,19 45,14 60,12 75,10 90,8 100,6"/>
-        </svg>
+        <span class="viz-kpi-val">R$ 5.065,29</span>
+        <span class="viz-kpi-lab">Investimento (campanha de vendas)</span>
+        
       </div>
       <div class="viz-kpi">
         <div class="viz-kpi-top">
           <div class="viz-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12.6 3.4 4 12l8 8 8.6-8.6a2 2 0 0 0 0-2.8L15.4 3.4a2 2 0 0 0-2.8 0Z"/><circle cx="8.5" cy="8.5" r="1.1" fill="currentColor" stroke="none"/></svg></div>
-          <span class="viz-kpi-delta flat">estável</span>
+          <span class="viz-kpi-delta flat">68 compras · acumulado</span>
         </div>
-        <span class="viz-kpi-val">R$ 63</span>
-        <span class="viz-kpi-lab">CAC</span>
-        <svg class="viz-spark" viewBox="0 0 100 30" preserveAspectRatio="none">
-          <polygon class="area" points="0,10 15,12 30,11 45,14 60,13 75,16 90,15 100,17 100,30 0,30"/>
-          <polyline class="line" points="0,10 15,12 30,11 45,14 60,13 75,16 90,15 100,17"/>
-        </svg>
+        <span class="viz-kpi-val">R$ 74,49</span>
+        <span class="viz-kpi-lab">CAC (custo por compra no Meta)</span>
+        
       </div>
     </div>
 
     <div class="viz-chip-grid">
       <div class="viz-chip">
         <div class="viz-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16l-6.5 8.2v6.3l-3 1.5v-7.8Z"/></svg></div>
-        <div><span class="viz-chip-val">3,8%</span><span class="viz-chip-lab">Conversão da LP</span></div>
+        <div><span class="viz-chip-val">23,1%</span><span class="viz-chip-lab">Aprovadas ÷ cliques de plano</span></div>
       </div>
       <div class="viz-chip">
-        <div class="viz-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.6 12.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9" cy="20" r="1.2" fill="currentColor" stroke="none"/><circle cx="18" cy="20" r="1.2" fill="currentColor" stroke="none"/></svg></div>
-        <div><span class="viz-chip-val">412</span><span class="viz-chip-lab">Checkout iniciado</span></div>
+        <div class="viz-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3A4 4 0 0 0 11 18.7l1-1"/></svg></div>
+        <div><span class="viz-chip-val">121</span><span class="viz-chip-lab">Cliques de plano na LP (108 sessões)</span></div>
       </div>
       <div class="viz-chip">
-        <div class="viz-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-6 8-6s8 2 8 6"/></svg></div>
-        <div><span class="viz-chip-val">386</span><span class="viz-chip-lab">Alunos ativos</span></div>
+        <div class="viz-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg></div>
+        <div><span class="viz-chip-val">280</span><span class="viz-chip-lab">Cliques no link do anúncio (Meta, 7 dias)</span></div>
       </div>
       <div class="viz-chip">
-        <div class="viz-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 14-5.3L21 9"/><path d="M21 4v5h-5"/><path d="M20 12a8 8 0 0 1-14 5.3L3 15"/><path d="M3 20v-5h5"/></svg></div>
-        <div><span class="viz-chip-val">34</span><span class="viz-chip-lab">Leads recuperados</span></div>
+        <div class="viz-icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5.5c0-1.9-2.2-3.5-5-3.5S7 3.6 7 5.5 9.2 9 12 9s5 1.6 5 3.5-2.2 3.5-5 3.5-5-1.6-5-3.5"/></svg></div>
+        <div><span class="viz-chip-val">R$ 93,88</span><span class="viz-chip-lab">Ticket médio (25 vendas em R$)</span></div>
       </div>
     </div>
+    <p class="dash-split-note">Faturamento soma só vendas em R$ (aprovadas). Há também 3 vendas aprovadas em dólar (US$ 54,57) fora do total. ROAS não aparece porque a exportação do Meta não traz o valor das compras, só a quantidade.</p>
   </div>
 </section>
 
@@ -2386,99 +2408,127 @@ Adicione o <strong>Desinflama Express</strong> por apenas R$27 e tenha treinos r
 
     <div class="dash-grid-2">
       <div class="dash-panel">
-        <div class="dash-panel-head"><h4>Plano mais vendido</h4><span class="dp-note">Exemplo</span></div>
+        <div class="dash-panel-head"><h4>Plano mais clicado</h4><span class="dp-note">Supabase · 01 a 07/10</span></div>
         <div class="vbar-chart">
-          <div class="vbar-col"><span class="vbar-val">54%</span><div class="vbar" style="height:130px"></div><span class="vbar-lab">Trimestral</span></div>
-          <div class="vbar-col"><span class="vbar-val">31%</span><div class="vbar" style="height:75px"></div><span class="vbar-lab">Mensal</span></div>
-          <div class="vbar-col"><span class="vbar-val">15%</span><div class="vbar" style="height:36px"></div><span class="vbar-lab">Semestral</span></div>
+          <div class="vbar-col"><span class="vbar-val">63%<small>76</small></span><div class="vbar" style="height:130px"></div><span class="vbar-lab">Mensal</span></div>
+          <div class="vbar-col"><span class="vbar-val">27%<small>33</small></span><div class="vbar" style="height:56px"></div><span class="vbar-lab">Trimestral</span></div>
+          <div class="vbar-col"><span class="vbar-val">10%<small>12</small></span><div class="vbar" style="height:21px"></div><span class="vbar-lab">Semestral</span></div>
         </div>
+        <p class="dash-split-note" style="margin-top:14px;">A Hotmart não informa o plano de cada venda; este gráfico mostra o plano em que o visitante clicou na LP.</p>
       </div>
       <div class="dash-panel">
-        <div class="dash-panel-head"><h4>Origem das vendas</h4><span class="dp-note">Exemplo</span></div>
+        <div class="dash-panel-head"><h4>Origem dos cliques</h4><span class="dp-note">Supabase · 01 a 07/10</span></div>
         <div class="donut-wrap">
-          <div class="donut" style="background:conic-gradient(var(--azul-acinzentado) 0% 48%, var(--azul-claro) 48% 81%, rgba(123,167,188,0.55) 81% 93%, rgba(123,167,188,0.18) 93% 100%)">
-            <div class="donut-hole"><span class="dh-val">168</span><span class="dh-lab">vendas</span></div>
+          <div class="donut" style="background:conic-gradient(var(--azul-acinzentado) 0.0% 43.0%, var(--azul-claro) 43.0% 84.3%, rgba(123,167,188,0.6) 84.3% 91.7%, rgba(123,167,188,0.35) 91.7% 97.5%, rgba(123,167,188,0.18) 97.5% 100.0%)">
+            <div class="donut-hole"><span class="dh-val">121</span><span class="dh-lab">cliques</span></div>
           </div>
           <div class="legend-list">
-            <div class="legend-item"><span class="legend-dot" style="background:var(--azul-acinzentado)"></span>Tráfego pago<strong>48%</strong></div>
-            <div class="legend-item"><span class="legend-dot" style="background:var(--azul-claro)"></span>Orgânico/Instagram<strong>33%</strong></div>
-            <div class="legend-item"><span class="legend-dot" style="background:rgba(123,167,188,0.55)"></span>WhatsApp/CRM<strong>12%</strong></div>
-            <div class="legend-item"><span class="legend-dot" style="background:rgba(123,167,188,0.18)"></span>Outros<strong>7%</strong></div>
+            <div class="legend-item"><span class="legend-dot" style="background:var(--azul-acinzentado)"></span>Direto (sem origem)<strong>52 · 43%</strong></div>
+            <div class="legend-item"><span class="legend-dot" style="background:var(--azul-claro)"></span>Link da bio<strong>50 · 41%</strong></div>
+            <div class="legend-item"><span class="legend-dot" style="background:rgba(123,167,188,0.6)"></span>Reels (orgânico)<strong>9 · 7%</strong></div>
+            <div class="legend-item"><span class="legend-dot" style="background:rgba(123,167,188,0.35)"></span>Anúncio (ads_out26)<strong>7 · 6%</strong></div>
+            <div class="legend-item"><span class="legend-dot" style="background:rgba(123,167,188,0.18)"></span>Stories<strong>3 · 2%</strong></div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="dash-panel" style="margin-top:18px;">
-      <div class="dash-panel-head"><h4>Faturamento: direto na Hotmart x vindo de anúncios</h4><span class="dp-note">Exemplo</span></div>
-      <div class="split-bar">
-        <div class="seg ads" style="width:48%">R$ 11.952<small>Anúncios</small></div>
-        <div class="seg organic" style="width:52%">R$ 12.948<small>Direto Hotmart</small></div>
-      </div>
-      <div class="split-legend">
-        <div class="split-legend-item"><span class="sl-dot" style="background:var(--azul-acinzentado)"></span>Vendas por clique em anúncio (UTM/Pixel)<strong>48%</strong></div>
-        <div class="split-legend-item"><span class="sl-dot" style="background:var(--azul-claro)"></span>Vendas direto na Hotmart (orgânico, WhatsApp, link na bio)<strong>52%</strong></div>
-      </div>
-      <p class="dash-split-note">Esse recorte depende de UTM e Pixel bem configurados na Fase 5 do cronograma. Sem isso, a Hotmart credita a venda como "direta" mesmo quando ela veio de um anúncio.</p>
+      <div class="dash-panel-head"><h4>Origem das vendas: ainda não rastreável</h4><span class="dp-note">Hotmart</span></div>
+      <p class="dash-split-note" style="margin-top:0;">A Hotmart não grava a origem de cada venda. O filtro Origem (SRC) = ads_out26 retornou 0 transações, então não dá para separar faturamento de anúncio e faturamento direto com os dados de hoje. O link com <strong style="color:var(--off-white);">?origem=ads_out26</strong> só passou a ser usado em 06/10 (7 cliques desde então); antes disso, quem veio do anúncio caiu em "direto". O próximo passo é repassar a origem para o checkout (parâmetro <strong style="color:var(--off-white);">sck</strong>).</p>
     </div>
 
     <div class="dash-panel" style="margin-top:18px;">
-      <div class="dash-panel-head"><h4>Funil de checkout</h4><span class="dp-note">Exemplo</span></div>
-      <div class="viz-funnel">
-        <div class="vf-row"><div class="vf-lab">Visualização da LP</div><div class="vf-bar" style="width:100%">10.850</div></div>
-        <div class="vf-arrow">▾</div>
-        <div class="vf-row"><div class="vf-lab">Clique no botão</div><div class="vf-bar" style="width:60%">1.290</div></div>
-        <div class="vf-arrow">▾</div>
-        <div class="vf-row"><div class="vf-lab">Checkout iniciado</div><div class="vf-bar" style="width:36%">412</div></div>
-        <div class="vf-arrow">▾</div>
-        <div class="vf-row"><div class="vf-lab">Compra</div><div class="vf-bar" style="width:22%">168</div></div>
+      <div class="dash-panel-head"><h4>Cliques no anúncio (Meta) x cliques de plano na LP (Supabase), por dia</h4><span class="dp-note">01 a 07/10</span></div>
+      <div class="pair-chart">
+          <div class="pair-col"><div class="pair-bars"><div class="pair-bar meta" style="height:94px" title="Meta: 47"><span>47</span></div><div class="pair-bar lp" style="height:26px" title="LP: 13"><span>13</span></div></div><span class="vbar-lab">01/10</span></div>
+          <div class="pair-col"><div class="pair-bars"><div class="pair-bar meta" style="height:120px" title="Meta: 60"><span>60</span></div><div class="pair-bar lp" style="height:36px" title="LP: 18"><span>18</span></div></div><span class="vbar-lab">02/10</span></div>
+          <div class="pair-col"><div class="pair-bars"><div class="pair-bar meta" style="height:120px" title="Meta: 60"><span>60</span></div><div class="pair-bar lp" style="height:28px" title="LP: 14"><span>14</span></div></div><span class="vbar-lab">03/10</span></div>
+          <div class="pair-col"><div class="pair-bars"><div class="pair-bar meta" style="height:86px" title="Meta: 43"><span>43</span></div><div class="pair-bar lp" style="height:48px" title="LP: 24"><span>24</span></div></div><span class="vbar-lab">04/10</span></div>
+          <div class="pair-col"><div class="pair-bars"><div class="pair-bar meta" style="height:16px" title="Meta: 8"><span>8</span></div><div class="pair-bar lp" style="height:32px" title="LP: 16"><span>16</span></div></div><span class="vbar-lab">05/10</span></div>
+          <div class="pair-col"><div class="pair-bars"><div class="pair-bar meta" style="height:78px" title="Meta: 39"><span>39</span></div><div class="pair-bar lp" style="height:40px" title="LP: 20"><span>20</span></div></div><span class="vbar-lab">06/10</span></div>
+          <div class="pair-col"><div class="pair-bars"><div class="pair-bar meta" style="height:46px" title="Meta: 23"><span>23</span></div><div class="pair-bar lp" style="height:32px" title="LP: 16"><span>16</span></div></div><span class="vbar-lab">07/10</span></div>
       </div>
+      <div class="split-legend" style="margin-top:14px;">
+        <div class="split-legend-item"><span class="sl-dot" style="background:var(--azul-acinzentado)"></span>Cliques no link do anúncio (Meta)<strong>280</strong></div>
+        <div class="split-legend-item"><span class="sl-dot" style="background:var(--azul-claro)"></span>Cliques de plano na LP, todas as origens (Supabase)<strong>121</strong></div>
+      </div>
+      <p class="dash-split-note">Meta: coluna "Cliques no link" do Gerenciador de Anúncios, digitada manualmente em 07/10. Supabase: horários convertidos para Brasília, testes/debug excluídos. São eventos diferentes (visita ao link x clique em plano), então a diferença não é perda de visitantes. Em 05/10 o Meta registrou só 8 cliques e a LP 16: nesse dia a maior parte veio de fora do anúncio.</p>
+    </div>
+
+    <div class="dash-panel" style="margin-top:18px;">
+      <div class="dash-panel-head"><h4>Funil de checkout</h4><span class="dp-note">01 a 07/10</span></div>
+      <div class="viz-funnel">
+        <div class="vf-row"><div class="vf-lab">Cliques no link do anúncio (Meta · só anúncios)</div><div class="vf-bar" style="width:100%">280</div></div>
+        <div class="vf-arrow">▾</div>
+        <div class="vf-row"><div class="vf-lab">Cliques no botão de plano (LP · todas as origens)</div><div class="vf-bar" style="width:43%">121</div></div>
+        <div class="vf-arrow">▾</div>
+        <div class="vf-row"><div class="vf-lab">Transações iniciadas (Hotmart · todos os status)</div><div class="vf-bar" style="width:16%">46</div></div>
+        <div class="vf-arrow">▾</div>
+        <div class="vf-row"><div class="vf-lab">Compras aprovadas (Hotmart)</div><div class="vf-bar" style="width:14%">28</div></div>
+      </div>
+      <p class="dash-split-note" style="margin-top:16px; text-align:center;">O primeiro degrau conta só anúncios; os demais, todas as origens.</p>
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <div class="section-head"><span class="idx">D3</span><h2>Retenção e base</h2></div>
+    <div class="section-head"><span class="idx">D3</span><h2>Transações e Meta Ads</h2></div>
 
-    <div class="dash-grid-3">
+    <div class="dash-grid-2">
       <div class="dash-panel">
-        <div class="dash-panel-head"><h4>Retenção</h4><span class="dp-note">Exemplo</span></div>
-        <div class="gauge-wrap">
-          <div class="gauge" style="background:conic-gradient(#7FC8A9 0% 91%, rgba(255,255,255,0.08) 91% 100%)"><div class="gauge-hole">91%</div></div>
-          <div><span class="gi-val" style="display:block; font-size:13px; color:var(--azul-claro); font-weight:300;">386 alunos ativos</span></div>
+        <div class="dash-panel-head"><h4>Status das transações</h4><span class="dp-note">Hotmart · 01 a 07/10</span></div>
+        <div class="donut-wrap">
+          <div class="donut" style="background:conic-gradient(#7FC8A9 0.0% 60.9%, var(--azul-acinzentado) 60.9% 76.1%, rgba(224,138,138,0.75) 76.1% 95.7%, rgba(123,167,188,0.25) 95.7% 100.0%)">
+            <div class="donut-hole"><span class="dh-val">46</span><span class="dh-lab">transações</span></div>
+          </div>
+          <div class="legend-list">
+            <div class="legend-item"><span class="legend-dot" style="background:#7FC8A9"></span>Aprovada<strong>28 · 61%</strong></div>
+            <div class="legend-item"><span class="legend-dot" style="background:var(--azul-acinzentado)"></span>Aguardando pagamento<strong>7 · 15%</strong></div>
+            <div class="legend-item"><span class="legend-dot" style="background:rgba(224,138,138,0.75)"></span>Vencida / expirada<strong>9 · 20%</strong></div>
+            <div class="legend-item"><span class="legend-dot" style="background:rgba(123,167,188,0.25)"></span>Cancelada / iniciada<strong>2 · 4%</strong></div>
+          </div>
         </div>
       </div>
       <div class="dash-panel">
-        <div class="dash-panel-head"><h4>Cancelamentos</h4><span class="dp-note">Exemplo</span></div>
-        <div class="gauge-wrap">
-          <div class="viz-icon-badge" style="width:52px; height:52px; border-radius:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px; height:24px;"><polyline points="3 7 9 13 5 17"/><polyline points="21 7 15 13 19 17"/></svg></div>
-          <div class="gauge-info"><span class="gi-val">22</span><span class="gi-lab">no período</span></div>
-        </div>
+        <div class="dash-panel-head"><h4>Conjuntos de vendas</h4><span class="dp-note">Meta · acumulado</span></div>
+        <div class="hrow"><div class="hrow-top"><span class="hrow-name">[STORIES]Engaj 180D menos compradores</span><span class="hrow-val">31 compras</span></div><div class="hrow-track"><div class="hrow-fill" style="width:100%"></div></div><div class="hrow-sub">R$ 2.088,20 investidos · CPA R$ 67,36</div></div>
+        <div class="hrow"><div class="hrow-top"><span class="hrow-name">[FEED] - Engaj menos grupo wpp</span><span class="hrow-val">16 compras</span></div><div class="hrow-track"><div class="hrow-fill" style="width:56%"></div></div><div class="hrow-sub">R$ 1.169,39 investidos · CPA R$ 73,09</div></div>
+        <div class="hrow"><div class="hrow-top"><span class="hrow-name">[STORIES] — VIDEOS</span><span class="hrow-val">12 compras</span></div><div class="hrow-track"><div class="hrow-fill" style="width:39%"></div></div><div class="hrow-sub">R$ 820,21 investidos · CPA R$ 68,35</div></div>
+        <div class="hrow"><div class="hrow-top"><span class="hrow-name">[FEED] - LAL grupo wpp</span><span class="hrow-val">8 compras</span></div><div class="hrow-track"><div class="hrow-fill" style="width:25%"></div></div><div class="hrow-sub">R$ 514,90 investidos · CPA R$ 64,36</div></div>
+        <div class="hrow"><div class="hrow-top"><span class="hrow-name">[STORIES] Teste MIX Homens</span><span class="hrow-val">1 compra</span></div><div class="hrow-track"><div class="hrow-fill" style="width:23%"></div></div><div class="hrow-sub">R$ 472,59 investidos · CPA R$ 472,59</div></div>
       </div>
-      <div class="dash-panel">
-        <div class="dash-panel-head"><h4>LTV estimado</h4><span class="dp-note">Exemplo</span></div>
-        <div class="gauge-wrap">
-          <div class="viz-icon-badge" style="width:52px; height:52px; border-radius:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px; height:24px;"><path d="M12 2v20M17 5.5c0-1.9-2.2-3.5-5-3.5S7 3.6 7 5.5 9.2 9 12 9s5 1.6 5 3.5-2.2 3.5-5 3.5-5-1.6-5-3.5"/></svg></div>
-          <div class="gauge-info"><span class="gi-val">R$ 187</span><span class="gi-lab">por assinante</span></div>
-        </div>
+    </div>
+
+    <div class="dash-panel" style="margin-top:18px;">
+      <div class="dash-panel-head"><h4>Criativos que mais venderam</h4><span class="dp-note">Meta · acumulado · soma das cópias de mesmo nome</span></div>
+      <div class="hrow-grid">
+        <div class="hrow"><div class="hrow-top"><span class="hrow-name">Você não precisa</span><span class="hrow-val">19 compras</span></div><div class="hrow-track"><div class="hrow-fill" style="width:100%"></div></div><div class="hrow-sub">R$ 1.164,29 investidos · CPA R$ 61,28</div></div>
+        <div class="hrow"><div class="hrow-top"><span class="hrow-name">o desinflama tem</span><span class="hrow-val">11 compras</span></div><div class="hrow-track"><div class="hrow-fill" style="width:58%"></div></div><div class="hrow-sub">R$ 782,09 investidos · CPA R$ 71,10</div></div>
+        <div class="hrow"><div class="hrow-top"><span class="hrow-name">seu treino, sua rotina — Cópia</span><span class="hrow-val">7 compras</span></div><div class="hrow-track"><div class="hrow-fill" style="width:37%"></div></div><div class="hrow-sub">R$ 479,22 investidos · CPA R$ 68,46</div></div>
+        <div class="hrow"><div class="hrow-top"><span class="hrow-name">resultado</span><span class="hrow-val">6 compras</span></div><div class="hrow-track"><div class="hrow-fill" style="width:32%"></div></div><div class="hrow-sub">R$ 349,87 investidos · CPA R$ 58,31</div></div>
+        <div class="hrow"><div class="hrow-top"><span class="hrow-name">corpo inflamado</span><span class="hrow-val">5 compras</span></div><div class="hrow-track"><div class="hrow-fill" style="width:26%"></div></div><div class="hrow-sub">R$ 339,69 investidos · CPA R$ 67,94</div></div>
+        <div class="hrow"><div class="hrow-top"><span class="hrow-name">Você não precisa — Cópia</span><span class="hrow-val">4 compras</span></div><div class="hrow-track"><div class="hrow-fill" style="width:21%"></div></div><div class="hrow-sub">R$ 197,58 investidos · CPA R$ 49,39</div></div>
+        <div class="hrow"><div class="hrow-top"><span class="hrow-name">Reels - mulher com mais de 30</span><span class="hrow-val">4 compras</span></div><div class="hrow-track"><div class="hrow-fill" style="width:21%"></div></div><div class="hrow-sub">R$ 233,74 investidos · CPA R$ 58,44</div></div>
+        <div class="hrow"><div class="hrow-top"><span class="hrow-name">corpo do verão começa no frio</span><span class="hrow-val">3 compras</span></div><div class="hrow-track"><div class="hrow-fill" style="width:16%"></div></div><div class="hrow-sub">R$ 130,36 investidos · CPA R$ 43,45</div></div>
       </div>
+      <p class="dash-split-note" style="margin-top:16px;">9 criativos gastaram R$ 617,68 sem nenhuma compra atribuída. Investimento total da conta no Meta (vendas, tráfego e engajamento): R$ 6.266,76.</p>
     </div>
   </div>
 </section>
 
 <section class="dark">
   <div class="container">
-    <div class="section-head"><span class="idx">D4</span><h2>Perguntas para validar com o time</h2></div>
+    <div class="section-head"><span class="idx">D4</span><h2>O que o dashboard ainda não mostra</h2></div>
     <ul class="dash-compact-list">
-      <li>Esses são os indicadores certos, ou falta algum importante?</li>
-      <li>O funil de checkout precisa de mais etapas?</li>
-      <li>Vale abrir "Origem das vendas" por campanha/criativo?</li>
-      <li>LTV considera só assinatura ativa, ou também upsell/order bump?</li>
-      <li>Quem acompanha o dashboard e com que frequência?</li>
-      <li>Depois de validar, conectamos primeiro Hotmart, Mfit ou Pixel/Meta Ads?</li>
+      <li><strong>Faturamento por origem:</strong> depende do parâmetro sck no checkout. Hoje a Hotmart credita tudo como direto.</li>
+      <li><strong>ROAS:</strong> o relatório do Meta exportado não traz o valor das compras, só a quantidade (68 compras no acumulado).</li>
+      <li><strong>Período do Meta:</strong> os CSVs são acumulados desde 14/02/2025 e a campanha aparece como "não está veiculando" em 09/10. Investimento e CAC não são comparáveis um a um com a semana de vendas.</li>
+      <li><strong>Retenção, cancelamentos, LTV e alunos ativos:</strong> sem fonte conectada ainda (depende do Mfit).</li>
+      <li><strong>Vendas em dólar:</strong> 3 vendas aprovadas estão fora do total em R$.</li>
     </ul>
-    <div class="callout" style="margin-top:22px;"><strong>Próximo passo:</strong> validar este protótipo com o time. Só depois conectamos as fontes reais nos mesmos lugares, sem mudar a estrutura do dashboard.</div>
+    <div class="callout" style="margin-top:22px;"><strong>Próximo passo:</strong> incluir o parâmetro de origem no link do checkout da Hotmart e repetir esta atualização na semana seguinte, já com o Meta separado por dia.</div>
   </div>
 </section>
 
